@@ -8,6 +8,10 @@
 import UIKit
 
 class LoginViewController: UIViewController {
+    
+    var id: Int?
+    var nomeCompleto: String?
+    var email: String?
 
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
@@ -72,6 +76,9 @@ class LoginViewController: UIViewController {
                                        print("Nome Completo: \(nomeCompleto)")
                                        print("E-mail: \(email)")
                                        
+                                       self.id = id
+                                       self.nomeCompleto = nomeCompleto
+                                       self.email = email
                                        DispatchQueue.main.async {
                                            self.performSegue(withIdentifier: "goToNext", sender: self)
                                        }
@@ -99,6 +106,12 @@ class LoginViewController: UIViewController {
     
     @IBAction func registerButtonPress(_ sender: UIButton) {
         self.performSegue(withIdentifier: "goToRegister", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToNext" {
+
+        }
     }
     /*
     // MARK: - Navigation
