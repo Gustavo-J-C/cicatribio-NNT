@@ -7,18 +7,28 @@
 
 import Foundation
 
+protocol ApiManagerDelegate {
+    func didUpdateData<T>(_ data: T?)
+}
+
 struct ApiManager {
     
-    let apiUrl = "https://cicatribio-server-nnt.onrender.com/"
+    let apiUrl = "http://localhost:3333/"
     
-    func fetchUsers(endpoint: String) {
+    func fetchData<T: Decodable>(endpoint: String, type: T.Type) {
         let urlString = "\(apiUrl)\(endpoint)"
-        peformRequest(urlString: urlString)
+        performRequest(urlString: urlString, dataType: type)
     }
     
+//    func fetchUsers(endpoint: String) {
+//        let urlString = "\(apiUrl)\(endpoint)"
+//        performRequest(urlString: urlString)
+//    }
     
-    func peformRequest(urlString: String) {
-        if let url = URL(string: urlString){
+    var delegate: ApiManagerDelegate?
+    
+    func performRequest<T: Decodable>(urlString: String, dataType: T.Type) {
+        if let url = URL(string: urlString) {
             let session = URLSession(configuration: .default)
             
             let task = session.dataTask(with: url) { data, response, error in
@@ -28,18 +38,19 @@ struct ApiManager {
                 }
                 
                 if let safeData = data {
-                    let data = parseJson(apiData: safeData)
+                    if let data = parseJson(apiData: safeData, dataType: dataType) {
+                        delegate?.didUpdateData(data)
+                    }
                 }
             }
             task.resume()
         }
     }
     
-    func parseJson(apiData: Data) -> [PatientsData]? {
+    func parseJson<T: Decodable>(apiData: Data, dataType: T.Type) -> T? {
         let decoder = JSONDecoder()
         do {
-            let decodedData = try decoder.decode([PatientsData].self, from: apiData)
-            print(decodedData[0])
+            let decodedData = try decoder.decode(T.self, from: apiData)
             return decodedData
         } catch {
             print(error)

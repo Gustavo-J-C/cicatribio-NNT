@@ -7,24 +7,46 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, UITextFieldDelegate {
-    
+class HomeViewController: UIViewController, UITextFieldDelegate, ApiManagerDelegate {
+        
     var userId: Int?
     var userName: String?;
     var userEmail: String?;
+    
+    var selectedIndexPath: IndexPath?
+    
     @IBOutlet weak var searchTextField: UITextField!
     
-    let apiManager = ApiManager()
+    var apiManager = ApiManager()
+    var patientsData: [PatientsData] = []
     
     @IBOutlet weak var tableView: UITableView!
-    let arrayMemes:[String] = ["meme1", "meme2", "meme3"];
+    
+    
+    var filteredPatientsData: [PatientsData] = []
+    
+    @objc func searchTextFieldDidChange() {
+        if let searchText = searchTextField.text, !searchText.isEmpty {
+            // Use the searchText to filter patientsData
+            filteredPatientsData = patientsData.filter { $0.no_completo.localizedCaseInsensitiveContains(searchText) }
+        } else {
+            // If the search field is empty, show all patientsData
+            filteredPatientsData = patientsData
+        }
+        
+        tableView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        apiManager.delegate = self
         tableView.register(MyTableViewCell.nib(), forCellReuseIdentifier: MyTableViewCell.identifier)
         tableView.delegate = self
         tableView.dataSource = self
         fetchDataFromAPI()
+        
+        searchTextField.addTarget(self, action: #selector(searchTextFieldDidChange), for: .editingChanged)
     }
     
     @IBAction func searchPressed(_ sender: UIButton) {
@@ -38,9 +60,21 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
+    func didUpdateData<T>(_ data: T?) {
+        if let data = data {
+            if let patientsData = data as? [PatientsData] {
+                // Trata a chegada de dados de pacientes
+                self.patientsData = patientsData
+                self.filteredPatientsData = patientsData
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        }
+    }
     
     func fetchDataFromAPI() {
-        apiManager.fetchUsers(endpoint: "pacientes")
+        apiManager.fetchData(endpoint: "pacientes", type: [PatientsData].self)
     }
     
 }
@@ -48,30 +82,30 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
 extension HomeViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("you tapped me!")
+        selectedIndexPath = indexPath
+        self.performSegue(withIdentifier: "goToAnamnese", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToAnamnese" {
+            if let destinationVC = segue.destination as? AnamnesesViewController {
+                if let indexPath = selectedIndexPath {
+                    destinationVC.currentPatient = filteredPatientsData[indexPath.row]
+                }
+            }
+        }
     }
 }
 
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return filteredPatientsData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        if indexPath.row > 2 {
-            let customCell = tableView.dequeueReusableCell(withIdentifier: MyTableViewCell.identifier, for: indexPath) as! MyTableViewCell
-            customCell.configure(with: "Custom Cell", imageName: "gear")
-            return customCell
-        }
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        
-        let mySwitch = UISwitch()
-        mySwitch.addTarget(self , action: #selector(didChangeSwitch(_:)), for: .valueChanged)
-        cell.accessoryView = mySwitch
-        cell.textLabel?.text = "Hello World"
-        return cell
+        let customCell = tableView.dequeueReusableCell(withIdentifier: MyTableViewCell.identifier, for: indexPath) as! MyTableViewCell
+        customCell.configure(with: filteredPatientsData[indexPath.row].no_completo, sex: filteredPatientsData[indexPath.row].ds_sexo, birthday: filteredPatientsData[indexPath.row].dt_nascimento)
+        return customCell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

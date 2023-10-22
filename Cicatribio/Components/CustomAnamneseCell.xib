@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="CustomAnamneseCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomAnamneseCell" rowHeight="75" id="KGk-i7-Jjw" customClass="CustomAnamneseCell" customModule="Cicatribio" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM" customClass="CustomAnamnesesCell" customModule="Cicatribio" customModuleProvider="target">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ahZ-zR-jtf" userLabel="dateLabel">
+                        <rect key="frame" x="40" y="27" width="47" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qPQ-qX-gO2">
+                        <rect key="frame" x="209" y="20" width="69" height="35"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="filled" title="Editar">
+                            <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
+                        </buttonConfiguration>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="veb-gG-Mgi" userLabel="dateValue">
+                        <rect key="frame" x="81" y="27" width="41" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="veb-gG-Mgi" firstAttribute="leading" secondItem="ahZ-zR-jtf" secondAttribute="trailing" constant="-6" id="0J8-Q5-IWc"/>
+                    <constraint firstItem="qPQ-qX-gO2" firstAttribute="leading" secondItem="veb-gG-Mgi" secondAttribute="trailing" constant="87" id="0ar-M2-9Kj"/>
+                    <constraint firstAttribute="bottom" secondItem="ahZ-zR-jtf" secondAttribute="bottom" constant="27" id="2WF-ZY-xLJ"/>
+                    <constraint firstAttribute="trailing" secondItem="veb-gG-Mgi" secondAttribute="trailing" constant="198" id="5YL-lf-dbl"/>
+                    <constraint firstItem="qPQ-qX-gO2" firstAttribute="leading" secondItem="veb-gG-Mgi" secondAttribute="trailing" constant="87" id="AdV-HF-EqI"/>
+                    <constraint firstItem="veb-gG-Mgi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="27" id="H3C-J0-0S2"/>
+                    <constraint firstAttribute="bottom" secondItem="qPQ-qX-gO2" secondAttribute="bottom" constant="20" symbolic="YES" id="RPe-KQ-PhU"/>
+                    <constraint firstItem="veb-gG-Mgi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="81" id="TnD-zZ-22x"/>
+                    <constraint firstAttribute="bottom" secondItem="veb-gG-Mgi" secondAttribute="bottom" constant="27" id="aVr-NC-Eha"/>
+                    <constraint firstItem="ahZ-zR-jtf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="27" id="fSC-ga-Lib"/>
+                    <constraint firstItem="qPQ-qX-gO2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" symbolic="YES" id="gHd-Cx-TVE"/>
+                    <constraint firstItem="ahZ-zR-jtf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="40" id="hFL-Wh-EUP"/>
+                    <constraint firstAttribute="trailing" secondItem="qPQ-qX-gO2" secondAttribute="trailing" constant="42" id="qqc-1r-Nd4"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="dateLabel" destination="veb-gG-Mgi" id="pUD-4j-ymD"/>
+            </connections>
+            <point key="canvasLocation" x="48.854961832061065" y="30.633802816901412"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

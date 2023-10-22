@@ -16,17 +16,22 @@ class MyTableViewCell: UITableViewCell {
                       bundle: nil)
     }
     
-    public func configure(with title: String, imageName: String) {
-        myLabel.text = title
-        myImageView.image = UIImage(systemName: imageName)
+    public func configure(with name: String, sex: Int, birthday: Date) {
+        nameLabel.text = name
+        if sex == 1 {
+            sexLabel.text = "Sexo: Masculino"
+        } else {
+            sexLabel.text = "Sexo: Feminino"
+        }
+        birthdayLabel.text = birthday.formatted()
     }
     
-    @IBOutlet weak var myImageView: UIImageView!
-    @IBOutlet weak var myLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var sexLabel: UILabel!
+    @IBOutlet weak var birthdayLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        myImageView.contentMode = .scaleAspectFit
         // Initialization code
     }
 
@@ -36,4 +41,13 @@ class MyTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+}
+
+
+extension Date {
+    func formatted() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        return dateFormatter.string(from: self)
+    }
 }
