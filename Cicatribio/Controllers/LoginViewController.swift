@@ -22,8 +22,6 @@ class LoginViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-    
-    let endpointURL = URL(string: "http://localhost:3333/usuarioLogin")!
 
     @IBAction func loginButtonPress(_ sender: UIButton) {
         guard let email = emailTextField.text, let password = passwordTextField.text else {

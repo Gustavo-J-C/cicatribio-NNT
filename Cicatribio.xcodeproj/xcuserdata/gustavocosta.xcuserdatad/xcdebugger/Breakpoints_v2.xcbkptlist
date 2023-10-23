@@ -3,4 +3,129 @@
    uuid = "64B28E76-2F8B-4D7B-B219-944EE94B94F1"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F1B0253D-6119-4984-937A-D973C16EAC04"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cicatribio/Controllers/RiskFactorsViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "10"
+            endingLineNumber = "10"
+            landmarkName = "RiskFactorsViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "F1B0253D-6119-4984-937A-D973C16EAC04 - eae78eeee69ec44a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cicatribio.RiskFactorsViewController.__allocating_init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; Cicatribio.RiskFactorsViewController"
+                  moduleName = "Cicatribio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gustavocosta/Documents/projects/cicatribio-NNT/Cicatribio/Controllers/RiskFactorsViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  uuid = "F1B0253D-6119-4984-937A-D973C16EAC04 - b35e9a26f51f5065"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cicatribio.RiskFactorsViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; Cicatribio.RiskFactorsViewController"
+                  moduleName = "Cicatribio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gustavocosta/Documents/projects/cicatribio-NNT/Cicatribio/Controllers/RiskFactorsViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "100">
+               </Location>
+               <Location
+                  uuid = "F1B0253D-6119-4984-937A-D973C16EAC04 - 59174917ea273a8d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cicatribio.RiskFactorsViewController.__allocating_init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Cicatribio.RiskFactorsViewController&gt;"
+                  moduleName = "Cicatribio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gustavocosta/Documents/projects/cicatribio-NNT/Cicatribio/Controllers/RiskFactorsViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "F1B0253D-6119-4984-937A-D973C16EAC04 - cdb7f37d13b52638"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cicatribio.RiskFactorsViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Cicatribio.RiskFactorsViewController&gt;"
+                  moduleName = "Cicatribio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gustavocosta/Documents/projects/cicatribio-NNT/Cicatribio/Controllers/RiskFactorsViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "76">
+               </Location>
+               <Location
+                  uuid = "F1B0253D-6119-4984-937A-D973C16EAC04 - be2e0cd1cca923be"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cicatribio.RiskFactorsViewController.__deallocating_deinit"
+                  moduleName = "Cicatribio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gustavocosta/Documents/projects/cicatribio-NNT/Cicatribio/Controllers/RiskFactorsViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  uuid = "F1B0253D-6119-4984-937A-D973C16EAC04 - b35e9a26f51f5042"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cicatribio.RiskFactorsViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; Cicatribio.RiskFactorsViewController"
+                  moduleName = "Cicatribio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gustavocosta/Documents/projects/cicatribio-NNT/Cicatribio/Controllers/RiskFactorsViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "92">
+               </Location>
+               <Location
+                  uuid = "F1B0253D-6119-4984-937A-D973C16EAC04 - cdb7f37d13b5261f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cicatribio.RiskFactorsViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Cicatribio.RiskFactorsViewController&gt;"
+                  moduleName = "Cicatribio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gustavocosta/Documents/projects/cicatribio-NNT/Cicatribio/Controllers/RiskFactorsViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "68">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

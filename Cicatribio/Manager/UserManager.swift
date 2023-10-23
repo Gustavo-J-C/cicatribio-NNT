@@ -11,5 +11,9 @@ class UserManager {
     static let shared = UserManager()
     
     var currentUser: User?
+    var hygieneTypes: [HygieneType]?
+    var mobilityTypes: [MobilityType]?
+    var skinTypes: [SkinType]?
+    
     private init() {}
 }

@@ -20,10 +20,26 @@ struct ApiManager {
         performRequest(urlString: urlString, dataType: type)
     }
     
-//    func fetchUsers(endpoint: String) {
-//        let urlString = "\(apiUrl)\(endpoint)"
-//        performRequest(urlString: urlString)
-//    }
+    func fetchAndDecode<T: Decodable>(_ endpoint: String, type: T.Type, completion: @escaping (T?) -> Void) {
+        let urlString = "\(apiUrl)\(endpoint)"
+        if let url = URL(string: urlString) {
+            let session = URLSession(configuration: .default)
+            
+            let task = session.dataTask(with: url) { data, response, error in
+                if error != nil {
+                    print(error!)
+                    completion(nil)
+                    return
+                }
+                
+                if let safeData = data {
+                    let decodedData = parseJson(apiData: safeData, dataType: T.self)
+                    completion(decodedData)
+                }
+            }
+            task.resume()
+        }
+    }
     
     var delegate: ApiManagerDelegate?
     
@@ -93,6 +109,9 @@ struct ApiManager {
                         let decoder = JSONDecoder()
                         let user = try decoder.decode(User.self, from: responseData)
                         completion(true, user)
+                        self.fetchHygieneTypes()
+                        self.fetchMobilityTypes()
+                        self.fetchSelfCareTypes()
                     } catch {
                         print("Erro ao fazer o parse dos dados JSON: \(error.localizedDescription)")
                         completion(false, nil)
@@ -110,4 +129,31 @@ struct ApiManager {
         task.resume()
     }
 
+    func fetchMobilityTypes() {
+        let endpoint = "tipoMobilidade"
+        fetchAndDecode(endpoint, type: [MobilityType].self) { mobilityTypes in
+            if let mobilityTypes = mobilityTypes {
+                UserManager.shared.mobilityTypes = mobilityTypes
+            }
+        }
+    }
+
+    // Função para buscar e popular os tipos de higiene
+    func fetchHygieneTypes() {
+        let endpoint = "tipoHigiene"
+        fetchAndDecode(endpoint, type: [HygieneType].self) { hygieneTypes in
+            if let hygieneTypes = hygieneTypes {
+                UserManager.shared.hygieneTypes = hygieneTypes
+            }
+        }
+    }
+    
+    func fetchSelfCareTypes() {
+        let endpoint = "tipoTecido"
+        fetchAndDecode(endpoint, type: [SkinType].self) { skinTypes in
+            if let skinTypes = skinTypes {
+                UserManager.shared.skinTypes = skinTypes
+            }
+        }
+    }
 }
