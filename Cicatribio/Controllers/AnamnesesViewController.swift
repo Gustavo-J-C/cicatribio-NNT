@@ -48,6 +48,10 @@ class AnamnesesViewController: UIViewController, ApiManagerDelegate {
         self.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func handleNewAnamnese(_ sender: Any) {
+        self.performSegue(withIdentifier: "goToNext", sender: self)
+    }
+    
 }
 
 extension AnamnesesViewController: UITableViewDelegate{

@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -18,39 +19,39 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ahZ-zR-jtf" userLabel="dateLabel">
-                        <rect key="frame" x="40" y="27" width="47" height="21"/>
+                        <rect key="frame" x="20" y="27" width="41" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qPQ-qX-gO2">
-                        <rect key="frame" x="209" y="20" width="69" height="35"/>
+                        <rect key="frame" x="209" y="20" width="91" height="35"/>
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="filled" title="Editar">
                             <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
                         </buttonConfiguration>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="veb-gG-Mgi" userLabel="dateValue">
-                        <rect key="frame" x="81" y="27" width="41" height="21"/>
+                        <rect key="frame" x="69" y="27" width="41" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="veb-gG-Mgi" firstAttribute="leading" secondItem="ahZ-zR-jtf" secondAttribute="trailing" constant="-6" id="0J8-Q5-IWc"/>
-                    <constraint firstItem="qPQ-qX-gO2" firstAttribute="leading" secondItem="veb-gG-Mgi" secondAttribute="trailing" constant="87" id="0ar-M2-9Kj"/>
+                    <constraint firstItem="veb-gG-Mgi" firstAttribute="leading" secondItem="ahZ-zR-jtf" secondAttribute="trailing" constant="8" id="0J8-Q5-IWc"/>
+                    <constraint firstItem="qPQ-qX-gO2" firstAttribute="leading" secondItem="veb-gG-Mgi" secondAttribute="trailing" constant="99" id="0ar-M2-9Kj"/>
                     <constraint firstAttribute="bottom" secondItem="ahZ-zR-jtf" secondAttribute="bottom" constant="27" id="2WF-ZY-xLJ"/>
-                    <constraint firstAttribute="trailing" secondItem="veb-gG-Mgi" secondAttribute="trailing" constant="198" id="5YL-lf-dbl"/>
-                    <constraint firstItem="qPQ-qX-gO2" firstAttribute="leading" secondItem="veb-gG-Mgi" secondAttribute="trailing" constant="87" id="AdV-HF-EqI"/>
+                    <constraint firstAttribute="trailing" secondItem="veb-gG-Mgi" secondAttribute="trailing" constant="210" id="5YL-lf-dbl"/>
+                    <constraint firstItem="qPQ-qX-gO2" firstAttribute="leading" secondItem="veb-gG-Mgi" secondAttribute="trailing" constant="99" id="AdV-HF-EqI"/>
                     <constraint firstItem="veb-gG-Mgi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="27" id="H3C-J0-0S2"/>
                     <constraint firstAttribute="bottom" secondItem="qPQ-qX-gO2" secondAttribute="bottom" constant="20" symbolic="YES" id="RPe-KQ-PhU"/>
-                    <constraint firstItem="veb-gG-Mgi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="81" id="TnD-zZ-22x"/>
+                    <constraint firstItem="veb-gG-Mgi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="69" id="TnD-zZ-22x"/>
                     <constraint firstAttribute="bottom" secondItem="veb-gG-Mgi" secondAttribute="bottom" constant="27" id="aVr-NC-Eha"/>
                     <constraint firstItem="ahZ-zR-jtf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="27" id="fSC-ga-Lib"/>
                     <constraint firstItem="qPQ-qX-gO2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" symbolic="YES" id="gHd-Cx-TVE"/>
-                    <constraint firstItem="ahZ-zR-jtf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="40" id="hFL-Wh-EUP"/>
-                    <constraint firstAttribute="trailing" secondItem="qPQ-qX-gO2" secondAttribute="trailing" constant="42" id="qqc-1r-Nd4"/>
+                    <constraint firstItem="ahZ-zR-jtf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="hFL-Wh-EUP"/>
+                    <constraint firstAttribute="trailing" secondItem="qPQ-qX-gO2" secondAttribute="trailing" constant="20" id="v3i-aD-9H3"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -62,7 +63,7 @@
     </objects>
     <resources>
         <systemColor name="systemGreenColor">
-            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -16,6 +16,10 @@
 		CE0FEC482ABF69EF0030A8C8 /* CustomAuthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0FEC472ABF69EF0030A8C8 /* CustomAuthTextField.swift */; };
 		CE0FEC4A2AC899380030A8C8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0FEC492AC899380030A8C8 /* LoginViewController.swift */; };
 		CE0FEC4C2AC89AC60030A8C8 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0FEC4B2AC89AC60030A8C8 /* CreateAccountViewController.swift */; };
+		FC5A0B662AE69B510024F28B /* RiskFactorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5A0B652AE69B510024F28B /* RiskFactorsViewController.swift */; };
+		FCA1692D2AE69E7E008C6B50 /* MobilitType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA1692C2AE69E7E008C6B50 /* MobilitType.swift */; };
+		FCA169302AE69F9C008C6B50 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA1692F2AE69F9C008C6B50 /* UserManager.swift */; };
+		FCA169322AE6A293008C6B50 /* userData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA169312AE6A293008C6B50 /* userData.swift */; };
 		FCD016BD2AE472980055B2D7 /* AnamnesesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD016BC2AE472980055B2D7 /* AnamnesesViewController.swift */; };
 		FCD016C22AE487270055B2D7 /* CustomAnamneseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD016C02AE487270055B2D7 /* CustomAnamneseCell.swift */; };
 		FCD016C32AE487270055B2D7 /* CustomAnamneseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCD016C12AE487270055B2D7 /* CustomAnamneseCell.xib */; };
@@ -25,6 +29,7 @@
 		FCD671A72AE19BD70083FDC2 /* MyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCD671A52AE19BD70083FDC2 /* MyTableViewCell.xib */; };
 		FCD671A92AE1C00A0083FDC2 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD671A82AE1C00A0083FDC2 /* ApiManager.swift */; };
 		FCD671AC2AE218EA0083FDC2 /* PatitentsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD671AB2AE218EA0083FDC2 /* PatitentsData.swift */; };
+		FCEA347C2AE6868C001B35B4 /* NewAvaliationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEA347B2AE6868C001B35B4 /* NewAvaliationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +44,10 @@
 		CE0FEC472ABF69EF0030A8C8 /* CustomAuthTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAuthTextField.swift; sourceTree = "<group>"; };
 		CE0FEC492AC899380030A8C8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CE0FEC4B2AC89AC60030A8C8 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		FC5A0B652AE69B510024F28B /* RiskFactorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiskFactorsViewController.swift; sourceTree = "<group>"; };
+		FCA1692C2AE69E7E008C6B50 /* MobilitType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobilitType.swift; sourceTree = "<group>"; };
+		FCA1692F2AE69F9C008C6B50 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		FCA169312AE6A293008C6B50 /* userData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userData.swift; sourceTree = "<group>"; };
 		FCD016BC2AE472980055B2D7 /* AnamnesesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnamnesesViewController.swift; sourceTree = "<group>"; };
 		FCD016C02AE487270055B2D7 /* CustomAnamneseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnamneseCell.swift; sourceTree = "<group>"; };
 		FCD016C12AE487270055B2D7 /* CustomAnamneseCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomAnamneseCell.xib; sourceTree = "<group>"; };
@@ -48,6 +57,7 @@
 		FCD671A52AE19BD70083FDC2 /* MyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyTableViewCell.xib; sourceTree = "<group>"; };
 		FCD671A82AE1C00A0083FDC2 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		FCD671AB2AE218EA0083FDC2 /* PatitentsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatitentsData.swift; sourceTree = "<group>"; };
+		FCEA347B2AE6868C001B35B4 /* NewAvaliationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAvaliationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,19 +101,30 @@
 				CE0FEC492AC899380030A8C8 /* LoginViewController.swift */,
 				CE0FEC472ABF69EF0030A8C8 /* CustomAuthTextField.swift */,
 				CE0FEC392ABF64E20030A8C8 /* Main.storyboard */,
-				FCD671A82AE1C00A0083FDC2 /* ApiManager.swift */,
 				CE0FEC4B2AC89AC60030A8C8 /* CreateAccountViewController.swift */,
 				CE0FEC3C2ABF64E30030A8C8 /* Assets.xcassets */,
 				CE0FEC3E2ABF64E30030A8C8 /* LaunchScreen.storyboard */,
 				CE0FEC412ABF64E30030A8C8 /* Info.plist */,
+				FCA1692E2AE69F7D008C6B50 /* Manager */,
 			);
 			path = Cicatribio;
+			sourceTree = "<group>";
+		};
+		FCA1692E2AE69F7D008C6B50 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				FCD671A82AE1C00A0083FDC2 /* ApiManager.swift */,
+				FCA1692F2AE69F9C008C6B50 /* UserManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		FCCAC3EB2AE303290083AD43 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				FCD016BC2AE472980055B2D7 /* AnamnesesViewController.swift */,
+				FCEA347B2AE6868C001B35B4 /* NewAvaliationViewController.swift */,
+				FC5A0B652AE69B510024F28B /* RiskFactorsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -130,7 +151,9 @@
 			isa = PBXGroup;
 			children = (
 				FCD671AB2AE218EA0083FDC2 /* PatitentsData.swift */,
+				FCA169312AE6A293008C6B50 /* userData.swift */,
 				FCD016C62AE4A3E20055B2D7 /* Anamnese.swift */,
+				FCA1692C2AE69E7E008C6B50 /* MobilitType.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -210,6 +233,7 @@
 			files = (
 				CE0FEC4C2AC89AC60030A8C8 /* CreateAccountViewController.swift in Sources */,
 				FCD671A92AE1C00A0083FDC2 /* ApiManager.swift in Sources */,
+				FCA169322AE6A293008C6B50 /* userData.swift in Sources */,
 				FCD671AC2AE218EA0083FDC2 /* PatitentsData.swift in Sources */,
 				FCD671A62AE19BD70083FDC2 /* MyTableViewCell.swift in Sources */,
 				CE0FEC382ABF64E20030A8C8 /* ViewController.swift in Sources */,
@@ -217,10 +241,14 @@
 				FCD016C72AE4A3E20055B2D7 /* Anamnese.swift in Sources */,
 				FCD016BD2AE472980055B2D7 /* AnamnesesViewController.swift in Sources */,
 				CE0FEC342ABF64E20030A8C8 /* AppDelegate.swift in Sources */,
+				FCEA347C2AE6868C001B35B4 /* NewAvaliationViewController.swift in Sources */,
 				CE0FEC4A2AC899380030A8C8 /* LoginViewController.swift in Sources */,
 				FCD671A32AE16D180083FDC2 /* HomeViewController.swift in Sources */,
 				FCD016C22AE487270055B2D7 /* CustomAnamneseCell.swift in Sources */,
 				CE0FEC362ABF64E20030A8C8 /* SceneDelegate.swift in Sources */,
+				FCA1692D2AE69E7E008C6B50 /* MobilitType.swift in Sources */,
+				FC5A0B662AE69B510024F28B /* RiskFactorsViewController.swift in Sources */,
+				FCA169302AE69F9C008C6B50 /* UserManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
