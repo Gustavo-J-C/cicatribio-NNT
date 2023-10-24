@@ -17,13 +17,16 @@ class SelectorTableViewCell: UITableViewCell {
     let pickerView = UIPickerView()
     static let identifier = "SelectorTableViewCell"
     weak var delegate: SelectorTableViewCellDelegate?
+    var objectData: [DataOptionType]?
     
     static func nib() -> UINib {
         return UINib(nibName: "SelectorTableViewCell", bundle: nil)
     }
     
-    public func configure(with type: String) {
-        
+    public func configure(with data: [DataOptionType], title: String) {
+        titleLabel.text = title
+        searchTextField.placeholder = title
+        objectData = data
     }
     
     @IBOutlet var titleLabel: UILabel!
@@ -55,11 +58,11 @@ extension SelectorTableViewCell: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return UserManager.shared.hygieneTypes?[row].ds_tipo_higiene
+        return objectData?[row].value
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let selectedValue = UserManager.shared.hygieneTypes?[row].ds_tipo_higiene
+        let selectedValue = objectData?[row].value
 
         searchTextField.text = selectedValue
         searchTextField.resignFirstResponder()

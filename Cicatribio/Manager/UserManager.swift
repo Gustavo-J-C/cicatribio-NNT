@@ -12,6 +12,11 @@ class UserManager {
     
     var currentUser: User?
     var hygieneTypes: [HygieneType]?
+    var symptomsTypes: [SymptomType]?
+    var injurySites: [InjurySite]?
+    var exudateTypes: [ExudateType]?
+    var exudateAmounts: [ExudateAmount]?
+    var selfCareTypes: [SelfCareType]?
     var mobilityTypes: [MobilityType]?
     var skinTypes: [SkinType]?
     

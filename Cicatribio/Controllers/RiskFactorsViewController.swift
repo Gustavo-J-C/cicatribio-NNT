@@ -11,8 +11,8 @@ class RiskFactorsViewController: UIViewController {
 
     let countrys = ["pais1", "pais2", "pais3"]
     let titles = ["Tipo de mobilidade", "Autocuidado", "Tipo Higiene"]
+    let types : [[DataOptionType]?] = [UserManager.shared.mobilityTypes, UserManager.shared.selfCareTypes, UserManager.shared.hygieneTypes ]
     
-    @IBOutlet weak var countryTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +24,10 @@ class RiskFactorsViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
 
+    @IBAction func handleNext(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "goToNext", sender: self)
+    }
+    
 }
 
 extension RiskFactorsViewController: UITableViewDataSource {
@@ -35,8 +39,7 @@ extension RiskFactorsViewController: UITableViewDataSource {
         if indexPath.row < 3 {
             let customCell = tableView.dequeueReusableCell(withIdentifier: SelectorTableViewCell.identifier, for: indexPath) as! SelectorTableViewCell
             
-            customCell.titleLabel.text = titles[indexPath.row]
-            customCell.searchTextField.placeholder = titles[indexPath.row]
+            customCell.configure(with: types[indexPath.row]!, title: titles[indexPath.row])
             customCell.delegate = self
             return customCell
         }

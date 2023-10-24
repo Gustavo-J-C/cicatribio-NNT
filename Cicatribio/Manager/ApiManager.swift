@@ -112,6 +112,11 @@ struct ApiManager {
                         self.fetchHygieneTypes()
                         self.fetchMobilityTypes()
                         self.fetchSelfCareTypes()
+                        self.fetchSkinTypes()
+                        self.fetchInjurySites()
+                        self.fetchExudateAmounts()
+                        self.fetchExudateTypes()
+                        self.fetchSymptomsTypes()
                     } catch {
                         print("Erro ao fazer o parse dos dados JSON: \(error.localizedDescription)")
                         completion(false, nil)
@@ -149,6 +154,47 @@ struct ApiManager {
     }
     
     func fetchSelfCareTypes() {
+        let endpoint = "autoCuidado"
+        fetchAndDecode(endpoint, type: [SelfCareType].self) { selfCareTypes in
+            if let selfCareTypes = selfCareTypes {
+                UserManager.shared.selfCareTypes = selfCareTypes
+            }
+        }
+    }
+    
+    func fetchSymptomsTypes() {
+        let endpoint = "tipoSintoma"
+        fetchAndDecode(endpoint, type: [SymptomType].self) { symptomsTypes in
+            if let symptomType = symptomsTypes {
+                UserManager.shared.symptomsTypes = symptomsTypes
+            }
+        }
+    }
+    func fetchExudateTypes() {
+        let endpoint = "tipoExsudato"
+        fetchAndDecode(endpoint, type: [ExudateType].self) { exudateTypes in
+            if let exudateTypes = exudateTypes {
+                UserManager.shared.exudateTypes = exudateTypes
+            }
+        }
+    }
+    func fetchInjurySites() {
+        let endpoint = "localFerida"
+        fetchAndDecode(endpoint, type: [InjurySite].self) { injurySites in
+            if let injurySites = injurySites {
+                UserManager.shared.injurySites = injurySites
+            }
+        }
+    }
+    func fetchExudateAmounts() {
+        let endpoint = "qtdExsudato"
+        fetchAndDecode(endpoint, type: [ExudateAmount].self) { exudateAmounts in
+            if let exudateAmounts = exudateAmounts {
+                UserManager.shared.exudateAmounts = exudateAmounts
+            }
+        }
+    }
+    func fetchSkinTypes() {
         let endpoint = "tipoTecido"
         fetchAndDecode(endpoint, type: [SkinType].self) { skinTypes in
             if let skinTypes = skinTypes {

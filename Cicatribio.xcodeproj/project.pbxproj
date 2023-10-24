@@ -21,6 +21,12 @@
 		FC2A198C2AE6F62E0009ADB4 /* HygieneType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2A198B2AE6F62E0009ADB4 /* HygieneType.swift */; };
 		FC2A198E2AE6F9680009ADB4 /* SelfCare.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2A198D2AE6F9680009ADB4 /* SelfCare.swift */; };
 		FC2A19902AE6FA1E0009ADB4 /* SkinType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2A198F2AE6FA1E0009ADB4 /* SkinType.swift */; };
+		FC2A19922AE7EBA80009ADB4 /* DataOptionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2A19912AE7EBA80009ADB4 /* DataOptionType.swift */; };
+		FC2A19942AE804900009ADB4 /* ImageFeaturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2A19932AE804900009ADB4 /* ImageFeaturesViewController.swift */; };
+		FC2A19962AE8099D0009ADB4 /* SymptomType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2A19952AE8099D0009ADB4 /* SymptomType.swift */; };
+		FC2A19982AE80AAC0009ADB4 /* InjurySite.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2A19972AE80AAC0009ADB4 /* InjurySite.swift */; };
+		FC2A199A2AE80C450009ADB4 /* ExudateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2A19992AE80C450009ADB4 /* ExudateType.swift */; };
+		FC2A199C2AE80EF70009ADB4 /* ExudateAmount.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2A199B2AE80EF70009ADB4 /* ExudateAmount.swift */; };
 		FC5A0B662AE69B510024F28B /* RiskFactorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5A0B652AE69B510024F28B /* RiskFactorsViewController.swift */; };
 		FCA1692D2AE69E7E008C6B50 /* MobilitType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA1692C2AE69E7E008C6B50 /* MobilitType.swift */; };
 		FCA169302AE69F9C008C6B50 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA1692F2AE69F9C008C6B50 /* UserManager.swift */; };
@@ -54,6 +60,12 @@
 		FC2A198B2AE6F62E0009ADB4 /* HygieneType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HygieneType.swift; sourceTree = "<group>"; };
 		FC2A198D2AE6F9680009ADB4 /* SelfCare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfCare.swift; sourceTree = "<group>"; };
 		FC2A198F2AE6FA1E0009ADB4 /* SkinType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinType.swift; sourceTree = "<group>"; };
+		FC2A19912AE7EBA80009ADB4 /* DataOptionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataOptionType.swift; sourceTree = "<group>"; };
+		FC2A19932AE804900009ADB4 /* ImageFeaturesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFeaturesViewController.swift; sourceTree = "<group>"; };
+		FC2A19952AE8099D0009ADB4 /* SymptomType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomType.swift; sourceTree = "<group>"; };
+		FC2A19972AE80AAC0009ADB4 /* InjurySite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjurySite.swift; sourceTree = "<group>"; };
+		FC2A19992AE80C450009ADB4 /* ExudateType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExudateType.swift; sourceTree = "<group>"; };
+		FC2A199B2AE80EF70009ADB4 /* ExudateAmount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExudateAmount.swift; sourceTree = "<group>"; };
 		FC5A0B652AE69B510024F28B /* RiskFactorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiskFactorsViewController.swift; sourceTree = "<group>"; };
 		FCA1692C2AE69E7E008C6B50 /* MobilitType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobilitType.swift; sourceTree = "<group>"; };
 		FCA1692F2AE69F9C008C6B50 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
@@ -137,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				FCD016BC2AE472980055B2D7 /* AnamnesesViewController.swift */,
+				FC2A19932AE804900009ADB4 /* ImageFeaturesViewController.swift */,
 				CE0FEC4B2AC89AC60030A8C8 /* CreateAccountViewController.swift */,
 				FCD671A22AE16D180083FDC2 /* HomeViewController.swift */,
 				CE0FEC492AC899380030A8C8 /* LoginViewController.swift */,
@@ -168,7 +181,12 @@
 				FCA1692C2AE69E7E008C6B50 /* MobilitType.swift */,
 				FC2A198D2AE6F9680009ADB4 /* SelfCare.swift */,
 				FC2A198B2AE6F62E0009ADB4 /* HygieneType.swift */,
+				FC2A19952AE8099D0009ADB4 /* SymptomType.swift */,
+				FC2A19992AE80C450009ADB4 /* ExudateType.swift */,
+				FC2A199B2AE80EF70009ADB4 /* ExudateAmount.swift */,
 				FC2A198F2AE6FA1E0009ADB4 /* SkinType.swift */,
+				FC2A19972AE80AAC0009ADB4 /* InjurySite.swift */,
+				FC2A19912AE7EBA80009ADB4 /* DataOptionType.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -247,10 +265,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC2A19962AE8099D0009ADB4 /* SymptomType.swift in Sources */,
+				FC2A199A2AE80C450009ADB4 /* ExudateType.swift in Sources */,
 				CE0FEC4C2AC89AC60030A8C8 /* CreateAccountViewController.swift in Sources */,
 				FCD671A92AE1C00A0083FDC2 /* ApiManager.swift in Sources */,
 				FCA169322AE6A293008C6B50 /* userData.swift in Sources */,
 				FCD671AC2AE218EA0083FDC2 /* PatitentsData.swift in Sources */,
+				FC2A19982AE80AAC0009ADB4 /* InjurySite.swift in Sources */,
 				FC2A198E2AE6F9680009ADB4 /* SelfCare.swift in Sources */,
 				FCD671A62AE19BD70083FDC2 /* MyTableViewCell.swift in Sources */,
 				CE0FEC382ABF64E20030A8C8 /* ViewController.swift in Sources */,
@@ -262,13 +283,16 @@
 				CE0FEC4A2AC899380030A8C8 /* LoginViewController.swift in Sources */,
 				FC2A198C2AE6F62E0009ADB4 /* HygieneType.swift in Sources */,
 				FCD671A32AE16D180083FDC2 /* HomeViewController.swift in Sources */,
+				FC2A19922AE7EBA80009ADB4 /* DataOptionType.swift in Sources */,
 				FCD016C22AE487270055B2D7 /* CustomAnamneseCell.swift in Sources */,
 				FC2A19882AE6B9DF0009ADB4 /* SelectorTableViewCell.swift in Sources */,
 				CE0FEC362ABF64E20030A8C8 /* SceneDelegate.swift in Sources */,
+				FC2A199C2AE80EF70009ADB4 /* ExudateAmount.swift in Sources */,
 				FCA1692D2AE69E7E008C6B50 /* MobilitType.swift in Sources */,
 				FC5A0B662AE69B510024F28B /* RiskFactorsViewController.swift in Sources */,
 				FC2A19902AE6FA1E0009ADB4 /* SkinType.swift in Sources */,
 				FCA169302AE69F9C008C6B50 /* UserManager.swift in Sources */,
+				FC2A19942AE804900009ADB4 /* ImageFeaturesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
