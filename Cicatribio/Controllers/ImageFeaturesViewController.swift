@@ -9,7 +9,6 @@ import UIKit
 
 class ImageFeaturesViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
-    @IBOutlet weak var imageView: UIImageView!
     let titles = ["Tipo de sintomas", "Tipo de tecidos","Local da ferida", "Tipo exsudatos", "Quantidade de exsudatos"]
     let types : [[DataOptionType]?] = [UserManager.shared.symptomsTypes, UserManager.shared.skinTypes, UserManager.shared.injurySites,  UserManager.shared.exudateTypes, UserManager.shared.exudateAmounts]
     
@@ -19,54 +18,55 @@ class ImageFeaturesViewController: UIViewController, UINavigationControllerDeleg
 
         tableView.dataSource = self
         tableView.register(SelectorTableViewCell.nib(), forCellReuseIdentifier: SelectorTableViewCell.identifier)
+        tableView.register(ImagePickerCustomTableViewCell.nib(), forCellReuseIdentifier: ImagePickerCustomTableViewCell.identifier)
 
     }
 
-    @IBAction func handleBakc(_ sender: UIButton) {
+    @IBAction func handleBack(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func takePictureAction(_ sender: Any) {
-        let picker = UIImagePickerController()
-        picker.allowsEditing = true
-        picker.sourceType = .camera
-        picker.delegate = self
-        present(picker, animated: true)
-    }
-    
-    @IBAction func chooseImageAction(_ sender: Any) {
-        let picker = UIImagePickerController()
-        picker.allowsEditing = true
-        picker.delegate = self
-        present(picker, animated: true)
-    }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any] ) {
-        guard let image =  info[.editedImage] as? UIImage else {return}
-        
-        imageView.image = image
-        
-        dismiss(animated: true)
     }
 }
 
 extension ImageFeaturesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let customCell = tableView.dequeueReusableCell(withIdentifier: SelectorTableViewCell.identifier, for: indexPath) as! SelectorTableViewCell
+        if indexPath.row < 5 {
+            let customCell1 = tableView.dequeueReusableCell(withIdentifier: SelectorTableViewCell.identifier, for: indexPath) as! SelectorTableViewCell
+            
+            customCell1.configure(with: types[indexPath.row]!, title: titles[indexPath.row])
+            customCell1.delegate = self
+            return customCell1
+        } else {
+            
+            let customCell = tableView.dequeueReusableCell(withIdentifier: ImagePickerCustomTableViewCell.identifier, for: indexPath) as! ImagePickerCustomTableViewCell
+
+            customCell.delegate = self
+            return customCell
+        }
         
-        customCell.configure(with: types[indexPath.row]!, title: titles[indexPath.row])
-        customCell.delegate = self
-        return customCell
     }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 6
     }
 }
 
-extension ImageFeaturesViewController: SelectorTableViewCellDelegate {
+extension ImageFeaturesViewController: SelectorTableViewCellDelegate, ImagePickerCustomTableViewCellDelegate {
+    
+    func imageDidSelected(image: UIImage?) {
+        
+    }
+    
     func pickerViewDidSelectValue(_ value: String) {
         print(value)
     }
+    
+    func takePictureButtonTapped(with picker: UIImagePickerController) {
+        present(picker, animated: true)
+    }
+    
+    func chooseImageButtonTapped(with picker: UIImagePickerController) {
+        present(picker, animated: true)
+    }
+
 }

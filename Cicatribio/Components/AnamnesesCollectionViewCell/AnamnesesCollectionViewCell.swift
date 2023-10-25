@@ -10,10 +10,17 @@ import UIKit
 class AnamnesesCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var imageView: UIImageView!
+    static let identifier: String = "AnamnesesCollectionViewCell"
+    var currentIndex: Int!
     override func awakeFromNib() {
         super.awakeFromNib()
-        imageView
         // Initialization code
     }
+    
+    static func nib() -> UINib {
+        return UINib(nibName: "AnamnesesCollectionViewCell", bundle: nil)
+    }
 
+    @IBAction func handleRemove(_ sender: UIButton) {
+    }
 }

@@ -165,7 +165,7 @@ struct ApiManager {
     func fetchSymptomsTypes() {
         let endpoint = "tipoSintoma"
         fetchAndDecode(endpoint, type: [SymptomType].self) { symptomsTypes in
-            if let symptomType = symptomsTypes {
+            if let symptomsTypes = symptomsTypes {
                 UserManager.shared.symptomsTypes = symptomsTypes
             }
         }

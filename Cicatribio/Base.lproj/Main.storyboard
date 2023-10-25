@@ -140,7 +140,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vv7-hF-dJc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3127.4809160305344" y="1105.6338028169014"/>
+            <point key="canvasLocation" x="2894" y="1105"/>
         </scene>
         <!--Create Account View Controller-->
         <scene sceneID="4ZU-CL-DXB">
@@ -271,7 +271,7 @@
                         <outlet property="nameTextField" destination="UEU-We-EoV" id="lhg-J9-gqr"/>
                         <outlet property="passwordTextField" destination="rcu-30-Xa4" id="ksB-gR-Prn"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="goBack" modalPresentationStyle="fullScreen" id="L12-It-25b"/>
-                        <segue destination="Dkf-bW-AM0" kind="push" identifier="goToNext" splitViewControllerTargetIndex="1" id="sZk-Yx-yJ2"/>
+                        <segue destination="Dkf-bW-AM0" kind="presentation" identifier="goToNext" modalPresentationStyle="fullScreen" id="sZk-Yx-yJ2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Z2-Nh-5tR" sceneMemberID="firstResponder"/>
@@ -331,7 +331,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gx4-Ji-AiS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2179.3893129770991" y="1104.9295774647887"/>
+            <point key="canvasLocation" x="1837" y="1105"/>
         </scene>
         <!--Anamneses View Controller-->
         <scene sceneID="dqe-pf-oBe">
@@ -342,7 +342,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ILm-jV-DfB">
-                                <rect key="frame" x="30" y="712" width="333" height="36"/>
+                                <rect key="frame" x="30" y="746" width="333" height="36"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Nova Anamneme">
                                     <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
@@ -352,13 +352,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Anamneses do paciente" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UaG-Ui-wRW">
-                                <rect key="frame" x="105" y="123" width="183" height="21"/>
+                                <rect key="frame" x="105" y="64" width="183" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yUN-d6-Tie" userLabel="backButton">
-                                <rect key="frame" x="10" y="116" width="40" height="34"/>
+                                <rect key="frame" x="10" y="57" width="40" height="34"/>
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="chevron.left" catalog="system"/>
@@ -367,7 +367,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="E6h-cw-Koc">
-                                <rect key="frame" x="0.0" y="152" width="393" height="448"/>
+                                <rect key="frame" x="0.0" y="93" width="393" height="541"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="Bhc-p6-e5c">
@@ -400,7 +400,6 @@
                             <constraint firstItem="UaG-Ui-wRW" firstAttribute="leading" secondItem="kc2-Xr-TpR" secondAttribute="leading" constant="105" id="sdZ-iE-avU"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="pjg-8b-e4g"/>
                     <connections>
                         <outlet property="tableView" destination="E6h-cw-Koc" id="urT-ih-iLs"/>
                         <outlet property="titleLabel" destination="UaG-Ui-wRW" id="4OG-TA-gLY"/>
@@ -623,21 +622,6 @@
             </objects>
             <point key="canvasLocation" x="4130.5343511450383" y="1105.6338028169014"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="xvM-Q0-83b">
-            <objects>
-                <viewController id="amK-cD-Uly" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="klr-bc-ebj">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="kTG-W6-2wq"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9JL-AW-pPb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-280" y="3431"/>
-        </scene>
         <!--Risk Factors View Controller-->
         <scene sceneID="fpW-XH-X5E">
             <objects>
@@ -841,7 +825,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Ttx-4y-b2P">
-                                <rect key="frame" x="0.0" y="60" width="393" height="522"/>
+                                <rect key="frame" x="0.0" y="60" width="393" height="713"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell4" rowHeight="57" id="qch-Af-Tb3">
@@ -974,39 +958,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ltM-E8-2PR">
-                                <rect key="frame" x="76" y="590" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KDr-PH-IC5">
-                                <rect key="frame" x="135" y="726" width="56" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="camera.fill" catalog="system">
-                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="takePictureAction:" destination="ulm-Vd-AXe" eventType="touchUpInside" id="1Je-c8-ErJ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1CO-uY-ewa">
-                                <rect key="frame" x="200" y="725" width="55" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="photo.fill" catalog="system">
-                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="chooseImageAction:" destination="ulm-Vd-AXe" eventType="touchUpInside" id="rhK-96-N1C"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2Ub-1j-x1X"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="2Ub-1j-x1X" firstAttribute="trailing" secondItem="KrZ-Qr-hdG" secondAttribute="trailing" constant="97" id="7TO-F3-n6A"/>
                             <constraint firstItem="KrZ-Qr-hdG" firstAttribute="top" secondItem="2Ub-1j-x1X" secondAttribute="top" constant="25" id="CCe-Qd-pTq"/>
-                            <constraint firstItem="2Ub-1j-x1X" firstAttribute="bottom" secondItem="Ttx-4y-b2P" secondAttribute="bottom" constant="270" id="CTn-cv-hzo"/>
+                            <constraint firstItem="2Ub-1j-x1X" firstAttribute="bottom" secondItem="Ttx-4y-b2P" secondAttribute="bottom" constant="79" id="CTn-cv-hzo"/>
                             <constraint firstItem="PK5-cM-60e" firstAttribute="top" secondItem="2Ub-1j-x1X" secondAttribute="top" constant="16" id="GmX-rG-nhW"/>
                             <constraint firstItem="KrZ-Qr-hdG" firstAttribute="leading" secondItem="2Ub-1j-x1X" secondAttribute="leading" constant="96" id="QOc-JQ-ULh"/>
                             <constraint firstItem="Ttx-4y-b2P" firstAttribute="leading" secondItem="2Ub-1j-x1X" secondAttribute="leading" id="SjI-A8-RUg"/>
@@ -1020,7 +978,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="imageView" destination="ltM-E8-2PR" id="p3z-oi-QsM"/>
                         <outlet property="tableView" destination="Ttx-4y-b2P" id="JKQ-Uf-QHI"/>
                         <segue destination="r6G-kd-lAT" kind="presentation" identifier="goToNext" modalPresentationStyle="fullScreen" id="AAU-Ey-Aq5"/>
                     </connections>
@@ -1063,22 +1020,19 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Fc-RZ-1Tz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1252.6717557251907" y="1104.9295774647887"/>
+            <point key="canvasLocation" x="970" y="1105"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="hXz-Pt-ZOQ"/>
         <segue reference="IZ7-ZD-CDW"/>
         <segue reference="amR-Ov-Vw0"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Cicatribio_logo" width="364" height="66"/>
-        <image name="camera.fill" catalog="system" width="128" height="93"/>
         <image name="chevron.left" catalog="system" width="97" height="128"/>
         <image name="house" catalog="system" width="128" height="104"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="person" catalog="system" width="128" height="121"/>
-        <image name="photo.fill" catalog="system" width="128" height="93"/>
         <image name="placeholder" width="600" height="400"/>
         <image name="plus.circle" catalog="system" width="128" height="123"/>
         <systemColor name="labelColor">
@@ -1088,7 +1042,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

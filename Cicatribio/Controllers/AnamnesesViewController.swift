@@ -9,6 +9,7 @@ import UIKit
 
 class AnamnesesViewController: UIViewController, ApiManagerDelegate {
     
+    var user : User!
     var apiManager = ApiManager()
     var patientAnamneses: [Anamnese] = []
     
@@ -18,7 +19,7 @@ class AnamnesesViewController: UIViewController, ApiManagerDelegate {
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        user = UserManager.shared.currentUser!
         apiManager.delegate = self
         tableView.register(CustomAnamneseCell.nib(), forCellReuseIdentifier: CustomAnamneseCell.identifier )
         tableView.delegate = self
@@ -40,7 +41,7 @@ class AnamnesesViewController: UIViewController, ApiManagerDelegate {
     }
     
     func fetchDataFromAPI() {
-        apiManager.fetchData(endpoint: "anamneses/user/1/\(currentPatient.id)", type: [Anamnese].self)
+        apiManager.fetchData(endpoint: "anamneses/user/\(user.id)/\(currentPatient.id)", type: [Anamnese].self)
     }
     
     
@@ -49,7 +50,13 @@ class AnamnesesViewController: UIViewController, ApiManagerDelegate {
     }
     
     @IBAction func handleNewAnamnese(_ sender: Any) {
-        self.performSegue(withIdentifier: "goToNext", sender: self)
+//        self.performSegue(withIdentifier: "goToNext", sender: self)
+        let storyboard = UIStoryboard(name: "RegisterPatient", bundle: .init(for: RegisterPatientViewController.self))
+        guard let viewController = storyboard.instantiateViewController(withIdentifier: RegisterPatientViewController.identifier) as? RegisterPatientViewController else { return }
+
+        viewController.hidesBottomBarWhenPushed = false
+
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
 }

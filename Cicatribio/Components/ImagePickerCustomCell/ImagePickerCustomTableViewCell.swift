@@ -7,34 +7,63 @@
 
 import UIKit
 
-class ImagePickerCustomTableViewCell: UITableViewCell {
+protocol ImagePickerCustomTableViewCellDelegate: AnyObject {
+    func imageDidSelected(image: UIImage?)
+    func takePictureButtonTapped(with picker: UIImagePickerController)
+    func chooseImageButtonTapped(with picker: UIImagePickerController)
+}
 
-    @IBOutlet weak var collectionView: UICollectionView!
+class ImagePickerCustomTableViewCell: UITableViewCell, UINavigationControllerDelegate {
+
+    static let identifier: String = "ImagePickerCustomTableViewCell"
+    var selectedImage : UIImage!
+    
+    @IBOutlet weak var myImageView: UIImageView!
+    weak var delegate: ImagePickerCustomTableViewCellDelegate?
     override func awakeFromNib() {
         super.awakeFromNib()
-        collectionView.dataSource = self
         // Initialization code
+    }
+    
+    static func nib() -> UINib {
+        return UINib(nibName: "ImagePickerCustomTableViewCell", bundle: nil)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+    }
 
-        // Configure the view for the selected state
+    @IBAction func takePictureAction(_ sender: Any) {
+        let picker = UIImagePickerController()
+        picker.allowsEditing = true
+        picker.sourceType = .camera
+        picker.delegate = self
+        delegate?.takePictureButtonTapped(with: picker)
     }
     
+    @IBAction func chooseImageAction(_ sender: Any) {
+        let picker = UIImagePickerController()
+        picker.allowsEditing = true
+        picker.delegate = self
+        delegate?.chooseImageButtonTapped(with: picker)
+    }
 }
 
-extension ImagePickerCustomTableViewCell: UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+extension ImagePickerCustomTableViewCell: UIImagePickerControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let image = info[.editedImage] as? UIImage else {
+            picker.dismiss(animated: true)
+            return
+        }
+        print(image.size)
+        myImageView!.image = image
+        delegate?.imageDidSelected(image: image)
+        
+        picker.dismiss(animated: true)
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true)
     }
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AnamnesesCollectionViewCell" , for: indexPath)
-    }
-    
-    
 }

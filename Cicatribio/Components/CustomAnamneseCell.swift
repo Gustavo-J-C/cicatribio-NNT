@@ -1,5 +1,5 @@
 //
-//  CustomAnamnesesCell.swift
+//  CustomAnamneseCell.swift
 //  Cicatribio
 //
 //  Created by Gustavo Costa on 21/10/23.
