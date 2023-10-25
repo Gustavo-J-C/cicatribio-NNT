@@ -27,6 +27,13 @@
 		FC2A19982AE80AAC0009ADB4 /* InjurySite.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2A19972AE80AAC0009ADB4 /* InjurySite.swift */; };
 		FC2A199A2AE80C450009ADB4 /* ExudateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2A19992AE80C450009ADB4 /* ExudateType.swift */; };
 		FC2A199C2AE80EF70009ADB4 /* ExudateAmount.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2A199B2AE80EF70009ADB4 /* ExudateAmount.swift */; };
+		FC2A19A02AE879390009ADB4 /* ImagePickerCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2A199E2AE879390009ADB4 /* ImagePickerCustomTableViewCell.swift */; };
+		FC2A19A12AE879390009ADB4 /* ImagePickerCustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC2A199F2AE879390009ADB4 /* ImagePickerCustomTableViewCell.xib */; };
+		FC2A19A62AE8918E0009ADB4 /* AnamnesesView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC2A19A52AE8918E0009ADB4 /* AnamnesesView.storyboard */; };
+		FC2A19AC2AE8A4E30009ADB4 /* carouselTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2A19AA2AE8A4E30009ADB4 /* carouselTableViewCell.swift */; };
+		FC2A19AD2AE8A4E30009ADB4 /* carouselTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC2A19AB2AE8A4E30009ADB4 /* carouselTableViewCell.xib */; };
+		FC2A19B42AE8A6BE0009ADB4 /* AnamnesesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2A19B22AE8A6BE0009ADB4 /* AnamnesesCollectionViewCell.swift */; };
+		FC2A19B52AE8A6BE0009ADB4 /* AnamnesesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC2A19B32AE8A6BE0009ADB4 /* AnamnesesCollectionViewCell.xib */; };
 		FC5A0B662AE69B510024F28B /* RiskFactorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5A0B652AE69B510024F28B /* RiskFactorsViewController.swift */; };
 		FCA1692D2AE69E7E008C6B50 /* MobilitType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA1692C2AE69E7E008C6B50 /* MobilitType.swift */; };
 		FCA169302AE69F9C008C6B50 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA1692F2AE69F9C008C6B50 /* UserManager.swift */; };
@@ -66,6 +73,13 @@
 		FC2A19972AE80AAC0009ADB4 /* InjurySite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjurySite.swift; sourceTree = "<group>"; };
 		FC2A19992AE80C450009ADB4 /* ExudateType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExudateType.swift; sourceTree = "<group>"; };
 		FC2A199B2AE80EF70009ADB4 /* ExudateAmount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExudateAmount.swift; sourceTree = "<group>"; };
+		FC2A199E2AE879390009ADB4 /* ImagePickerCustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerCustomTableViewCell.swift; sourceTree = "<group>"; };
+		FC2A199F2AE879390009ADB4 /* ImagePickerCustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImagePickerCustomTableViewCell.xib; sourceTree = "<group>"; };
+		FC2A19A52AE8918E0009ADB4 /* AnamnesesView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AnamnesesView.storyboard; sourceTree = "<group>"; };
+		FC2A19AA2AE8A4E30009ADB4 /* carouselTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = carouselTableViewCell.swift; sourceTree = "<group>"; };
+		FC2A19AB2AE8A4E30009ADB4 /* carouselTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = carouselTableViewCell.xib; sourceTree = "<group>"; };
+		FC2A19B22AE8A6BE0009ADB4 /* AnamnesesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnamnesesCollectionViewCell.swift; sourceTree = "<group>"; };
+		FC2A19B32AE8A6BE0009ADB4 /* AnamnesesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnamnesesCollectionViewCell.xib; sourceTree = "<group>"; };
 		FC5A0B652AE69B510024F28B /* RiskFactorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiskFactorsViewController.swift; sourceTree = "<group>"; };
 		FCA1692C2AE69E7E008C6B50 /* MobilitType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobilitType.swift; sourceTree = "<group>"; };
 		FCA1692F2AE69F9C008C6B50 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
@@ -116,6 +130,7 @@
 				FCCAC3EB2AE303290083AD43 /* Controllers */,
 				FCD671AA2AE218810083FDC2 /* Model */,
 				CE0FEC332ABF64E20030A8C8 /* AppDelegate.swift */,
+				FC2A19A22AE8914E0009ADB4 /* Views */,
 				CE0FEC352ABF64E20030A8C8 /* SceneDelegate.swift */,
 				CE0FEC372ABF64E20030A8C8 /* ViewController.swift */,
 				CE0FEC392ABF64E20030A8C8 /* Main.storyboard */,
@@ -134,6 +149,41 @@
 				FC2A19872AE6B9DF0009ADB4 /* SelectorTableViewCell.xib */,
 			);
 			path = selector;
+			sourceTree = "<group>";
+		};
+		FC2A199D2AE879080009ADB4 /* ImagePickerCustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				FC2A199E2AE879390009ADB4 /* ImagePickerCustomTableViewCell.swift */,
+				FC2A199F2AE879390009ADB4 /* ImagePickerCustomTableViewCell.xib */,
+			);
+			path = ImagePickerCustomCell;
+			sourceTree = "<group>";
+		};
+		FC2A19A22AE8914E0009ADB4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FC2A19A52AE8918E0009ADB4 /* AnamnesesView.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FC2A19A92AE8A4CA0009ADB4 /* CarouselCell */ = {
+			isa = PBXGroup;
+			children = (
+				FC2A19AA2AE8A4E30009ADB4 /* carouselTableViewCell.swift */,
+				FC2A19AB2AE8A4E30009ADB4 /* carouselTableViewCell.xib */,
+			);
+			path = CarouselCell;
+			sourceTree = "<group>";
+		};
+		FC2A19AF2AE8A67C0009ADB4 /* AnamnesesCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				FC2A19B22AE8A6BE0009ADB4 /* AnamnesesCollectionViewCell.swift */,
+				FC2A19B32AE8A6BE0009ADB4 /* AnamnesesCollectionViewCell.xib */,
+			);
+			path = AnamnesesCollectionViewCell;
 			sourceTree = "<group>";
 		};
 		FCA1692E2AE69F7D008C6B50 /* Manager */ = {
@@ -162,6 +212,9 @@
 		FCD016BF2AE483BB0055B2D7 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				FC2A19AF2AE8A67C0009ADB4 /* AnamnesesCollectionViewCell */,
+				FC2A19A92AE8A4CA0009ADB4 /* CarouselCell */,
+				FC2A199D2AE879080009ADB4 /* ImagePickerCustomCell */,
 				FC2A198A2AE6B9E80009ADB4 /* selector */,
 				CE0FEC472ABF69EF0030A8C8 /* CustomAuthTextField.swift */,
 				FCD671A42AE19BD70083FDC2 /* MyTableViewCell.swift */,
@@ -250,10 +303,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC2A19892AE6B9DF0009ADB4 /* SelectorTableViewCell.xib in Resources */,
+				FC2A19AD2AE8A4E30009ADB4 /* carouselTableViewCell.xib in Resources */,
 				FCD016C32AE487270055B2D7 /* CustomAnamneseCell.xib in Resources */,
 				CE0FEC402ABF64E30030A8C8 /* LaunchScreen.storyboard in Resources */,
 				FCD671A72AE19BD70083FDC2 /* MyTableViewCell.xib in Resources */,
+				FC2A19A12AE879390009ADB4 /* ImagePickerCustomTableViewCell.xib in Resources */,
+				FC2A19A62AE8918E0009ADB4 /* AnamnesesView.storyboard in Resources */,
 				CE0FEC3D2ABF64E30030A8C8 /* Assets.xcassets in Resources */,
+				FC2A19B52AE8A6BE0009ADB4 /* AnamnesesCollectionViewCell.xib in Resources */,
 				CE0FEC3B2ABF64E20030A8C8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -274,14 +331,17 @@
 				FC2A19982AE80AAC0009ADB4 /* InjurySite.swift in Sources */,
 				FC2A198E2AE6F9680009ADB4 /* SelfCare.swift in Sources */,
 				FCD671A62AE19BD70083FDC2 /* MyTableViewCell.swift in Sources */,
+				FC2A19AC2AE8A4E30009ADB4 /* carouselTableViewCell.swift in Sources */,
 				CE0FEC382ABF64E20030A8C8 /* ViewController.swift in Sources */,
 				CE0FEC482ABF69EF0030A8C8 /* CustomAuthTextField.swift in Sources */,
 				FCD016C72AE4A3E20055B2D7 /* Anamnese.swift in Sources */,
 				FCD016BD2AE472980055B2D7 /* AnamnesesViewController.swift in Sources */,
 				CE0FEC342ABF64E20030A8C8 /* AppDelegate.swift in Sources */,
+				FC2A19A02AE879390009ADB4 /* ImagePickerCustomTableViewCell.swift in Sources */,
 				FCEA347C2AE6868C001B35B4 /* NewAvaliationViewController.swift in Sources */,
 				CE0FEC4A2AC899380030A8C8 /* LoginViewController.swift in Sources */,
 				FC2A198C2AE6F62E0009ADB4 /* HygieneType.swift in Sources */,
+				FC2A19B42AE8A6BE0009ADB4 /* AnamnesesCollectionViewCell.swift in Sources */,
 				FCD671A32AE16D180083FDC2 /* HomeViewController.swift in Sources */,
 				FC2A19922AE7EBA80009ADB4 /* DataOptionType.swift in Sources */,
 				FCD016C22AE487270055B2D7 /* CustomAnamneseCell.swift in Sources */,
