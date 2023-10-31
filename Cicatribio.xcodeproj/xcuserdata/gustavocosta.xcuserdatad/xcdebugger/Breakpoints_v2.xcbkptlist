@@ -8,7 +8,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "110D892E-E584-4DF4-8C07-2132B289446A"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Cicatribio/Components/AnamnesesCollectionViewCell/AnamnesesCollectionViewCell.swift"
@@ -66,6 +66,326 @@
                   offsetFromSymbolStart = "536">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BEB1175B-DAF3-4070-ABE9-EC1E2EC2DE1E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cicatribio/Controllers/AnamnesesViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "fetchDataFromAPI()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0D55043E-5A33-4035-AEFF-592AD980B94E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cicatribio/Controllers/AnamnesesViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "tableView(_:numberOfRowsInSection:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C98B133F-8EEF-4F21-9D2C-8DB331180879"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cicatribio/Controllers/AnamnesesViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "tableView(_:numberOfRowsInSection:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4BDE11E1-D1D1-45E2-90E2-E1FEE142D39E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cicatribio/Controllers/AnamnesesViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "didUpdateData(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7EDD05DF-5B31-40C2-98C8-F29B23F95806"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cicatribio/Controllers/AnamnesesViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0BD2E0C4-1B58-41BB-89BD-A35638227124"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cicatribio/Controllers/ImageFeaturesViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
+            landmarkName = "postAnamnse(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0BD2E0C4-1B58-41BB-89BD-A35638227124 - 33be66b8696776f7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Cicatribio.PathResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (Swift.Optional&lt;Cicatribio.FeridaInfo&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (Swift.Optional&lt;Cicatribio.InjuryInfo&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (Swift.Optional&lt;Cicatribio.InjuryType&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (Swift.Optional&lt;Cicatribio.AnamneseData&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Cicatribio.ImageFeaturesViewController.postAnamnse(__C.UIButton) -&gt; ()"
+                  moduleName = "Cicatribio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gustavocosta/Documents/projects/cicatribio-NNT/Cicatribio/Controllers/ImageFeaturesViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "104"
+                  endingLineNumber = "104"
+                  offsetFromSymbolStart = "272">
+               </Location>
+               <Location
+                  uuid = "0BD2E0C4-1B58-41BB-89BD-A35638227124 - 33be66b8696776f7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Cicatribio.PathResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (Swift.Optional&lt;Cicatribio.FeridaInfo&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (Swift.Optional&lt;Cicatribio.InjuryInfo&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (Swift.Optional&lt;Cicatribio.InjuryType&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (Swift.Optional&lt;Cicatribio.AnamneseData&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Cicatribio.ImageFeaturesViewController.postAnamnse(__C.UIButton) -&gt; ()"
+                  moduleName = "Cicatribio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gustavocosta/Documents/projects/cicatribio-NNT/Cicatribio/Controllers/ImageFeaturesViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "104"
+                  endingLineNumber = "104"
+                  offsetFromSymbolStart = "812">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "44D31180-DE3F-4AF9-8B5F-608DD0C4E3CF"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cicatribio/Controllers/ImageFeaturesViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "postAnamnse(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "86019CF9-37D7-4BC1-BF21-5AEC00A92FF9"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cicatribio/Controllers/ImageFeaturesViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "postAnamnse(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "86019CF9-37D7-4BC1-BF21-5AEC00A92FF9 - c32993d0668bbe4e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Cicatribio.InjuryInfo&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (Swift.Optional&lt;Cicatribio.InjuryType&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (Swift.Optional&lt;Cicatribio.AnamneseData&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Cicatribio.ImageFeaturesViewController.postAnamnse(__C.UIButton) -&gt; ()"
+                  moduleName = "Cicatribio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gustavocosta/Documents/projects/cicatribio-NNT/Cicatribio/Controllers/ImageFeaturesViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "97"
+                  endingLineNumber = "97"
+                  offsetFromSymbolStart = "976">
+               </Location>
+               <Location
+                  uuid = "86019CF9-37D7-4BC1-BF21-5AEC00A92FF9 - 69eda1888d942c0a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Cicatribio.FeridaInfo&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (Swift.Optional&lt;Cicatribio.InjuryInfo&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (Swift.Optional&lt;Cicatribio.InjuryType&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (Swift.Optional&lt;Cicatribio.AnamneseData&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Cicatribio.ImageFeaturesViewController.postAnamnse(__C.UIButton) -&gt; ()"
+                  moduleName = "Cicatribio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gustavocosta/Documents/projects/cicatribio-NNT/Cicatribio/Controllers/ImageFeaturesViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "98"
+                  endingLineNumber = "98"
+                  offsetFromSymbolStart = "436">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B5F35CBC-2406-41D6-AD4B-F2F951A9F3B5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cicatribio/Controllers/ImageFeaturesViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
+            landmarkName = "postAnamnse(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B5F35CBC-2406-41D6-AD4B-F2F951A9F3B5 - 24ec88cd4efd9c1b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Cicatribio.InjuryType&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (Swift.Optional&lt;Cicatribio.AnamneseData&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Cicatribio.ImageFeaturesViewController.postAnamnse(__C.UIButton) -&gt; ()"
+                  moduleName = "Cicatribio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gustavocosta/Documents/projects/cicatribio-NNT/Cicatribio/Controllers/ImageFeaturesViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "93"
+                  endingLineNumber = "93"
+                  offsetFromSymbolStart = "2812">
+               </Location>
+               <Location
+                  uuid = "B5F35CBC-2406-41D6-AD4B-F2F951A9F3B5 - c32993d0668bbfed"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Cicatribio.InjuryInfo&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (Swift.Optional&lt;Cicatribio.InjuryType&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (Swift.Optional&lt;Cicatribio.AnamneseData&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Cicatribio.ImageFeaturesViewController.postAnamnse(__C.UIButton) -&gt; ()"
+                  moduleName = "Cicatribio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gustavocosta/Documents/projects/cicatribio-NNT/Cicatribio/Controllers/ImageFeaturesViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "94"
+                  endingLineNumber = "94"
+                  offsetFromSymbolStart = "324">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4BC62C44-5519-4820-A365-75FCAEA64713"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cicatribio/Extensions/UIViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "dismissToAnamnesesViewController()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9D2353C8-D5BA-459C-9D4A-86133CCD5895"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cicatribio/Controllers/ImageFeaturesViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "postAnamnse(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "9D2353C8-D5BA-459C-9D4A-86133CCD5895 - 33be66b869676916"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Cicatribio.PathResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (Swift.Optional&lt;Cicatribio.FeridaInfo&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (Swift.Optional&lt;Cicatribio.InjuryInfo&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (Swift.Optional&lt;Cicatribio.InjuryType&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (Swift.Optional&lt;Cicatribio.AnamneseData&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Cicatribio.ImageFeaturesViewController.postAnamnse(__C.UIButton) -&gt; ()"
+                  moduleName = "Cicatribio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gustavocosta/Documents/projects/cicatribio-NNT/Cicatribio/Controllers/ImageFeaturesViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "105"
+                  endingLineNumber = "105"
+                  offsetFromSymbolStart = "904">
+               </Location>
+               <Location
+                  uuid = "9D2353C8-D5BA-459C-9D4A-86133CCD5895 - 3f99bf9e61ada4b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 (Swift.Optional&lt;Cicatribio.PathResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (Swift.Optional&lt;Cicatribio.FeridaInfo&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (Swift.Optional&lt;Cicatribio.InjuryInfo&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (Swift.Optional&lt;Cicatribio.InjuryType&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (Swift.Optional&lt;Cicatribio.AnamneseData&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Cicatribio.ImageFeaturesViewController.postAnamnse(__C.UIButton) -&gt; ()"
+                  moduleName = "Cicatribio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gustavocosta/Documents/projects/cicatribio-NNT/Cicatribio/Controllers/ImageFeaturesViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "106"
+                  endingLineNumber = "106"
+                  offsetFromSymbolStart = "32">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4644880D-3A20-404D-8353-E5C4BE52D80F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cicatribio/Extensions/UIViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "dismissToAnamnesesViewController()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

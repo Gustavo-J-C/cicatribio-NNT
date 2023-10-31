@@ -13,6 +13,7 @@ class CreateAccountViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var CPFTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var PhoneTextField: UITextField!
     @IBOutlet weak var confirmPasswordTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,11 +22,12 @@ class CreateAccountViewController: UIViewController {
     }
     
     @IBAction func registerButtonPress(_ sender: UIButton) {
-        let endpointURL = URL(string: "https://cicatribio-server-nnt.onrender.com/usuarioResgister")!
+        let endpointURL = URL(string: "http://localhost:3333/usuarioRegister")!
 
         guard let nome = nameTextField.text,
               let email = emailTextField.text,
               let cpf = CPFTextField.text,
+              let phone = PhoneTextField.text,
               let senha = passwordTextField.text,
               let confirmarSenha = confirmPasswordTextField.text else {
             return
@@ -36,8 +38,8 @@ class CreateAccountViewController: UIViewController {
             "no_completo": nome,
             "ds_senha": senha,
             "ds_email": email,
-            "nu_telefone_completo": cpf,
-            "nu_cpf": confirmarSenha
+            "nu_telefone_completo": phone,
+            "nu_cpf": cpf
         ]
 
         // Crie uma solicitação URLRequest com o URL
@@ -74,14 +76,11 @@ class CreateAccountViewController: UIViewController {
                 // A resposta da API está em 'data'
                 if let responseData = data {
                     do {
-                        if let json = try JSONSerialization.jsonObject(with: responseData, options: []) as? [String: Any] {
-                            // Aqui você pode processar a resposta JSON, se necessário
+                        let json = try JSONDecoder().decode(User.self, from: responseData)
+                            
                             print("Resposta JSON: \(json)")
                             DispatchQueue.main.async {
-                               self.performSegue(withIdentifier: "goToNext", sender: self)
-                           }
-                        } else {
-                            print("Não foi possível fazer o parse do JSON")
+                            self.performSegue(withIdentifier: "goToNext", sender: self)
                         }
                     } catch {
                         print("Erro ao fazer o parse dos dados JSON: \(error.localizedDescription)")
@@ -100,15 +99,5 @@ class CreateAccountViewController: UIViewController {
     @IBAction func goBackButtonPress(_ sender: UIButton) {
         self.performSegue(withIdentifier: "goBack", sender: self)
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

@@ -15,8 +15,8 @@ class CustomAnamneseCell: UITableViewCell {
         return UINib(nibName: "CustomAnamneseCell", bundle: nil)
     }
     
-    public func configure(with date: Date) {
-        dateLabel.text = date.formatted()
+    public func configure(with date: Date?) {
+        dateLabel.text = date!.formatted()
     }
     
     @IBOutlet weak var dateLabel: UILabel!

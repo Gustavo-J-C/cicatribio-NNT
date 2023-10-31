@@ -9,9 +9,9 @@ import UIKit
 
 class RiskFactorsViewController: UIViewController {
 
-    let countrys = ["pais1", "pais2", "pais3"]
-    let titles = ["Tipo de mobilidade", "Autocuidado", "Tipo Higiene"]
-    let types : [[DataOptionType]?] = [UserManager.shared.mobilityTypes, UserManager.shared.selfCareTypes, UserManager.shared.hygieneTypes ]
+    var anamneseInfo = AnamneseInfo()
+    let titles = ["Tipo de mobilidade", "Autocuidado", "Tipo Higiene", "Tipo sintomas"]
+    let types : [[DataOptionType]?] = [UserManager.shared.mobilityTypes, UserManager.shared.selfCareTypes, UserManager.shared.hygieneTypes, UserManager.shared.symptomsTypes ]
     
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -25,7 +25,19 @@ class RiskFactorsViewController: UIViewController {
     }
 
     @IBAction func handleNext(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "goToNext", sender: self)
+        if anamneseInfo.mobilitType != nil, anamneseInfo.selfCare != nil, anamneseInfo.hygieneType != nil, anamneseInfo.symptomType != nil {
+            self.performSegue(withIdentifier: "goToNext", sender: self)
+        } else {
+            self.view.showToast(message: "Por favor, preencha todos os campos obrigatórios.", isSuccess: false)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToNext" {
+            if let nextViewController = segue.destination as? ImageFeaturesViewController {
+                nextViewController.anamneseInfo = anamneseInfo
+            }
+        }
     }
     
 }
@@ -33,35 +45,32 @@ class RiskFactorsViewController: UIViewController {
 extension RiskFactorsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 7
+        return 4
     }
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row < 3 {
-            let customCell = tableView.dequeueReusableCell(withIdentifier: SelectorTableViewCell.identifier, for: indexPath) as! SelectorTableViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {            let customCell = tableView.dequeueReusableCell(withIdentifier: SelectorTableViewCell.identifier, for: indexPath) as! SelectorTableViewCell
             
-            customCell.configure(with: types[indexPath.row]!, title: titles[indexPath.row])
+            customCell.configure(with: types[indexPath.row]!, title: titles[indexPath.row], tag: indexPath.row)
             customCell.delegate = self
             return customCell
-        }
+//        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell\(indexPath.row + 1)", for: indexPath)
         
-        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell\(indexPath.row + 1)", for: indexPath)
-        
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row < 3 {
-            // Altura personalizada para as células customizadas
-            return 150.0 // Ajuste o valor conforme necessário
-        } else {
-            // Altura padrão para as outras células
-            return 44.0 // Ajuste o valor conforme necessário
-        }
+//        return cell
     }
 }
 
 extension RiskFactorsViewController: SelectorTableViewCellDelegate {
-    func pickerViewDidSelectValue(_ value: String) {
-        print(value)
+    func pickerViewDidSelectValue(_ value: Int, tag: Int) {
+        print(tag, value)
+        switch tag {
+        case 0:
+            anamneseInfo.mobilitType = value
+        case 1:
+            anamneseInfo.selfCare = value
+        case 2:
+            anamneseInfo.hygieneType = value
+        case 3: anamneseInfo.symptomType = value
+        default:
+            break
+        }
     }
 }

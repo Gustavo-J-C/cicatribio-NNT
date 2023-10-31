@@ -8,13 +8,14 @@
 import UIKit
 
 protocol SelectorTableViewCellDelegate: AnyObject {
-    func pickerViewDidSelectValue(_ value: String)
+    func pickerViewDidSelectValue(_ value: Int, tag: Int)
 }
 
 class SelectorTableViewCell: UITableViewCell {
     
     
     let pickerView = UIPickerView()
+    var cellTag : Int?
     static let identifier = "SelectorTableViewCell"
     weak var delegate: SelectorTableViewCellDelegate?
     var objectData: [DataOptionType]?
@@ -23,10 +24,15 @@ class SelectorTableViewCell: UITableViewCell {
         return UINib(nibName: "SelectorTableViewCell", bundle: nil)
     }
     
-    public func configure(with data: [DataOptionType], title: String) {
+    public func configure(with data: [DataOptionType], title: String, tag: Int) {
         titleLabel.text = title
         searchTextField.placeholder = title
+        cellTag = tag
         objectData = data
+        
+        searchTextField.inputView = pickerView
+        searchTextField.inputAccessoryView = UIView() // Remove o teclado de acesso
+        searchTextField.tintColor = UIColor.clear
     }
     
     @IBOutlet var titleLabel: UILabel!
@@ -44,6 +50,12 @@ class SelectorTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    @objc func textFieldTapped() {
+        // O UITextField foi tocado, você pode realizar alguma ação aqui
+        // Por exemplo, abrir o UIPickerView
+        pickerView.isHidden = false
     }
     
 }
@@ -66,6 +78,6 @@ extension SelectorTableViewCell: UIPickerViewDelegate, UIPickerViewDataSource {
 
         searchTextField.text = selectedValue
         searchTextField.resignFirstResponder()
-        delegate?.pickerViewDidSelectValue(selectedValue!)
+        delegate?.pickerViewDidSelectValue(row, tag: cellTag!)
     }
 }

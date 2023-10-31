@@ -9,13 +9,13 @@ import Foundation
 
 struct Anamnese: Decodable {
     let id: Int
-    let mob_usuarios_id: Int
-    let mob_pacientes_id: Int
-    let dt_anamnese: Date
-    let vl_peso: Double
-    let vl_altura: Double
-    let vl_pressao: Double
-    let vl_temperatura: Double
+    let mob_usuarios_id: Int?
+    let mob_pacientes_id: Int?
+    let dt_anamnese: Date?
+    let vl_peso: Double?
+    let vl_altura: Double?
+    let vl_pressao: Double?
+    let vl_temperatura: Double?
     let createdAt: String
     let updatedAt: String
 
@@ -37,22 +37,20 @@ struct Anamnese: Decodable {
         id = try container.decode(Int.self, forKey: .id)
         mob_usuarios_id = try container.decode(Int.self, forKey: .mob_usuarios_id)
         mob_pacientes_id = try container.decode(Int.self, forKey: .mob_pacientes_id)
-        vl_peso = try container.decode(Double.self, forKey: .vl_peso)
-        vl_altura = try container.decode(Double.self, forKey: .vl_altura)
-        vl_pressao = try container.decode(Double.self, forKey: .vl_pressao)
-        vl_temperatura = try container.decode(Double.self, forKey: .vl_temperatura)
+        vl_peso = try container.decode(Double?.self, forKey: .vl_peso)
+        vl_altura = try container.decode(Double?.self, forKey: .vl_altura)
+        vl_pressao = try container.decode(Double?.self, forKey: .vl_pressao)
+        vl_temperatura = try container.decode(Double?.self, forKey: .vl_temperatura)
         createdAt = try container.decode(String.self, forKey: .createdAt)
         updatedAt = try container.decode(String.self, forKey: .updatedAt)
         
         // Decodificação personalizada para o campo de data
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-        let dateString = try container.decode(String.self, forKey: .dt_anamnese)
-        if let date = dateFormatter.date(from: dateString) {
-            dt_anamnese = date
+        if let dateString = try container.decodeIfPresent(String.self, forKey: .dt_anamnese) {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+            dt_anamnese = dateFormatter.date(from: dateString)
         } else {
-            print("Erro ao converter a data: \(dateString)")
-            throw DecodingError.dataCorruptedError(forKey: .dt_anamnese, in: container, debugDescription: "Date string could not be converted.")
+            dt_anamnese = nil
         }
     }
 }

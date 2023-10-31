@@ -134,6 +134,73 @@ struct ApiManager {
         task.resume()
     }
 
+
+    func postAnamnese(endpoint: String, postData: [String: Any], completion: @escaping (AnamneseData?, Error?) -> Void) {
+        let urlString = "\(apiUrl)\(endpoint)"
+        guard let apiURL = URL(string: urlString) else {
+            completion(nil, NSError(domain: "Invalid URL", code: 0, userInfo: nil))
+            return
+        }
+
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: postData, options: .prettyPrinted)
+            var request = URLRequest(url: apiURL)
+            request.httpMethod = "POST"
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.httpBody = jsonData
+
+            let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+                if let error = error {
+                    completion(nil, error)
+                } else if let data = data {
+                    do {
+                        let anamneseData = try JSONDecoder().decode(AnamneseData.self, from: data)
+                        completion(anamneseData, nil)
+                    } catch (let e) {
+                        
+                        completion(nil, error)
+                    }
+                }
+            }
+            task.resume()
+        } catch {
+            completion(nil, error)
+        }
+    }
+    
+    func postData<T: Decodable>(endpoint: String, postData: [String: Any], dataType: T.Type, completion: @escaping (T?, Error?) -> Void) {
+        let urlString = "\(apiUrl)\(endpoint)"
+        guard let apiURL = URL(string: urlString) else {
+            completion(nil, NSError(domain: "Invalid URL", code: 0, userInfo: nil))
+            return
+        }
+
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: postData, options: .prettyPrinted)
+            var request = URLRequest(url: apiURL)
+            request.httpMethod = "POST"
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.httpBody = jsonData
+
+            let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+                if let error = error {
+                    completion(nil, error)
+                } else if let data = data {
+                    do {
+                        let anamneseData = try JSONDecoder().decode(T.self, from: data)
+                        completion(anamneseData, nil)
+                    } catch let decodingError {
+                        completion(nil, decodingError)
+                    }
+                }
+            }
+            task.resume()
+        } catch let serializationError {
+            completion(nil, serializationError)
+        }
+    }
+
+    
     func fetchMobilityTypes() {
         let endpoint = "tipoMobilidade"
         fetchAndDecode(endpoint, type: [MobilityType].self) { mobilityTypes in

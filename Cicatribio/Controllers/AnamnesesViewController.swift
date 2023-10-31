@@ -15,7 +15,6 @@ class AnamnesesViewController: UIViewController, ApiManagerDelegate {
     
     var currentPatient: PatientsData! = nil
     
-    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,19 +43,22 @@ class AnamnesesViewController: UIViewController, ApiManagerDelegate {
         apiManager.fetchData(endpoint: "anamneses/user/\(user.id)/\(currentPatient.id)", type: [Anamnese].self)
     }
     
-    
-    @IBAction func handleBack(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
+    @IBAction func handleNewAnamnese(_ sender: Any) {
+        self.performSegue(withIdentifier: "goToNext", sender: self)
+//        let storyboard = UIStoryboard(name: "RegisterPatient", bundle: .init(for: RegisterPatientViewController.self))
+//        guard let viewController = storyboard.instantiateViewController(withIdentifier: RegisterPatientViewController.identifier) as? RegisterPatientViewController else { return }
+
+//        viewController.hidesBottomBarWhenPushed = false
+
+//        navigationController?.pushViewController(viewController, animated: true)
     }
     
-    @IBAction func handleNewAnamnese(_ sender: Any) {
-//        self.performSegue(withIdentifier: "goToNext", sender: self)
-        let storyboard = UIStoryboard(name: "RegisterPatient", bundle: .init(for: RegisterPatientViewController.self))
-        guard let viewController = storyboard.instantiateViewController(withIdentifier: RegisterPatientViewController.identifier) as? RegisterPatientViewController else { return }
-
-        viewController.hidesBottomBarWhenPushed = false
-
-        navigationController?.pushViewController(viewController, animated: true)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToNext" {
+            if let nextViewController = segue.destination as? NewAnamenseViewController {
+                nextViewController.anamneseInfo.patientId = currentPatient.id
+            }
+        }
     }
     
 }
@@ -72,7 +74,10 @@ extension AnamnesesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let customCell = tableView.dequeueReusableCell(withIdentifier: CustomAnamneseCell.identifier, for: indexPath) as! CustomAnamneseCell
-        customCell.configure(with: patientAnamneses[indexPath.row].dt_anamnese)
+        if let dtAnamnese = patientAnamneses[indexPath.row].dt_anamnese {
+            // Agora você pode usar dtAnamnese com segurança, pois não é nulo
+            customCell.configure(with: dtAnamnese)
+        }
         return customCell
     }
     
