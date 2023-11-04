@@ -22,7 +22,12 @@ extension UIView {
         let labelWidth = min(textSize.width, self.frame.width - 40)
         let adjustedHeight = max(labelHeight, textSize.height + 20)
         
-        toastLbl.frame = CGRect(x: 20, y: (self.frame.height - 90) - adjustedHeight, width: labelWidth + 20, height: adjustedHeight)
+        if #available(iOS 11.0, *) {
+            let safeAreaTop = self.safeAreaInsets.top
+            toastLbl.frame = CGRect(x: 20, y: safeAreaTop + 10, width: labelWidth + 20, height: labelHeight + 20)
+        } else {
+            toastLbl.frame = CGRect(x: 20, y: 80, width: labelWidth + 20, height: labelHeight + 20)
+        }
         toastLbl.center.x = self.center.x
         toastLbl.layer.cornerRadius = 10
         toastLbl.layer.masksToBounds = true

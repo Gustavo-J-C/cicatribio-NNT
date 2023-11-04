@@ -30,6 +30,9 @@ class ImageFeaturesViewController: UIViewController, UINavigationControllerDeleg
     
     var anamneseInfo = AnamneseInfo()
     
+    var imageKey: String!
+    var imageId: Int!
+    
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,13 +49,14 @@ class ImageFeaturesViewController: UIViewController, UINavigationControllerDeleg
         tableView.register(ImagePickerCustomTableViewCell.nib(), forCellReuseIdentifier: ImagePickerCustomTableViewCell.identifier)
 
     }
-
+    
     @IBAction func postAnamnse(_ sender: UIButton) {
         guard let anamneseDate = anamneseInfo.selectedDate,
               let weightKg = anamneseInfo.weightKg,
               let heightM = anamneseInfo.heightM,
               let currentUser = UserManager.shared.currentUser,
-              let patientID = anamneseInfo.patientId else {
+              let patientID = anamneseInfo.patientId,
+              let base64ImageData = anamneseInfo.base64ImageData else {
             self.view.showToast(message: "Por favor, preencha todos os campos obrigatórios.", isSuccess: false)
             return
         }
@@ -61,7 +65,6 @@ class ImageFeaturesViewController: UIViewController, UINavigationControllerDeleg
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
         let anamneseDateString = dateFormatter.string(from: anamneseDate)
         
-        print(weightKg, heightM)
         let postData: [String: Any] = [
             "vl_peso": weightKg,
             "vl_altura": heightM,
@@ -76,39 +79,61 @@ class ImageFeaturesViewController: UIViewController, UINavigationControllerDeleg
                 print("Erro na solicitação: \(error)")
             } else if let anamneseData = data {
                 print(anamneseData)
-                self.apiManager.postData(endpoint: "ferida", postData: ["mob_anamneses_id": anamneseData.id, ], dataType: InjuryType.self ) { (data, error) in
+                self.apiManager.postData(endpoint: "ferida", postData: ["mob_anamneses_id": anamneseData.id], dataType: InjuryType.self) { (data, error) in
                     if let error = error {
                         print("Erro ao criar a foto: \(error)")
                     } else if let injuryData = data {
-                        let injuryObj = [
-                            "mob_tipo_sintomas_id": self.anamneseInfo.symptomType,
-                            "mob_tipo_tecidos_id": self.anamneseInfo.skinType,
-                            "mob_local_feridas_id": self.anamneseInfo.injurySite,
-                            "mob_tipo_exsudatos_id": self.anamneseInfo.exudateType,
-                            "mob_qtd_exsudatos_id": self.anamneseInfo.exudateAmount,
-                            "mob_feridas_id": injuryData.id,
-                            "vl_comprimento": nil,
-                            "vl_largura": nil
+                        let injuryObj: [String: Any] = [
+                            "mob_tipo_sintomas_id": self.anamneseInfo.symptomType!,
+                            "mob_tipo_tecidos_id": self.anamneseInfo.skinType!,
+                            "mob_local_feridas_id": self.anamneseInfo.injurySite!,
+                            "mob_tipo_exsudatos_id": self.anamneseInfo.exudateType!,
+                            "mob_qtd_exsudatos_id": self.anamneseInfo.exudateAmount!,
+                            "mob_feridas_id": injuryData.id!,
+                            "vl_comprimento": NSNull(),
+                            "vl_largura": NSNull()
                         ]
-                        self.apiManager.postData(endpoint: "caracteristicasFerida", postData: injuryObj as [String : Any], dataType: InjuryInfo.self) { (data, error) in
-                            if let error = error {
-                                print("Erro ao enviar caracteristicas da ferida: \(error)")
-                            } else if let injuryInfos = data {
-                                self.apiManager.postData(endpoint: "imagens_feridas", postData: ["mob_caracteristicas_feridas_id": injuryInfos.id, "mob_feridas_id": injuryData.id!,] as [String : Any], dataType: FeridaInfo.self) {(data, error) in
-                                    if let error = error {
-                                        print("Erro ao enviar dados da imagem Ferida \(error)")
-                                    } else if let injuryImageInfo = data {
-                                        self.apiManager.postData(endpoint: "uploadB64", postData: ["b64": self.anamneseInfo.base64ImageData, "id": injuryImageInfo.id], dataType: PathResponse.self) { (data, error) in
-                                            if let error {
-                                                print("Erro ao enviar o base64 \(error)")
-                                            } else if let b64imageData = data {
-                                                DispatchQueue.main.async {
-                                                    self.dismissToAnamnesesViewController()
-                                                }
-                                            }
-                                        }
-                                    
+                        
+                        self.apiManager.checkerPost(b64: base64ImageData) { result in
+                            switch result {
+                            case .success(let json):
+                                if let info = json["info"] as? [String: Any], // Verifica se "info" é um dicionário
+                                   let hashtag = info["hasTag"] as? Bool, hashtag == true {
+                                    self.continuePostSequence(injuryData: injuryData, injuryObj: injuryObj)
+                                } else {
+                                    DispatchQueue.main.async {
+                                        self.view.showToast(message: "Não foi possível validar a imagem", isSuccess: false)
                                     }
+                                }
+                            case .failure(let error):
+                                print("Erro: \(error)")
+                                // Lide com o erro de alguma forma
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    
+    func continuePostSequence(injuryData: InjuryType, injuryObj: [String: Any]) {
+        self.apiManager.postData(endpoint: "caracteristicasFerida", postData: injuryObj, dataType: InjuryType.self) { (data, error) in
+            if let error = error {
+                print("Erro ao enviar características da ferida: \(error)")
+            } else if let injuryInfos = data {
+                self.apiManager.postData(endpoint: "imagens_feridas", postData: ["mob_caracteristicas_feridas_id": injuryInfos.id!, "mob_feridas_id": injuryData.id!] as [String: Any], dataType: FeridaInfo.self) { (data, error) in
+                    if let error = error {
+                        print("Erro ao enviar dados da imagem da Ferida \(error)")
+                    } else if let injuryImageInfo = data {
+                        self.imageId = injuryImageInfo.id
+                        self.apiManager.postData(endpoint: "uploadB64", postData: ["b64": self.anamneseInfo.base64ImageData!, "id": injuryImageInfo.id!], dataType: PathResponse.self) { (data, error) in
+                            if let error {
+                                print("Erro ao enviar o base64 \(error)")
+                            } else if let b64imageData = data {
+                                self.imageKey = b64imageData.path
+                                DispatchQueue.main.async {
+                                    self.performSegue(withIdentifier: "goToNext", sender: self)
                                 }
                             }
                         }
@@ -118,8 +143,19 @@ class ImageFeaturesViewController: UIViewController, UINavigationControllerDeleg
         }
     }
     
+    
     @IBAction func handleBack(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToNext" {
+            if let nextViewController = segue.destination as? SegmentationViewController {
+                nextViewController.imageb64 = anamneseInfo.base64ImageData
+                nextViewController.imageId = imageId
+                nextViewController.imageKey = imageKey
+            }
+        }
     }
 }
 

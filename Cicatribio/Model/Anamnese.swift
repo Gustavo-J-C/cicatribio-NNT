@@ -16,8 +16,8 @@ struct Anamnese: Decodable {
     let vl_altura: Double?
     let vl_pressao: Double?
     let vl_temperatura: Double?
-    let createdAt: String
-    let updatedAt: String
+    let createdAt: String?
+    let updatedAt: String?
 
     private enum CodingKeys: String, CodingKey {
         case id

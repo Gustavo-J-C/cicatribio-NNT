@@ -34,6 +34,7 @@
 		FC2A19AD2AE8A4E30009ADB4 /* carouselTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC2A19AB2AE8A4E30009ADB4 /* carouselTableViewCell.xib */; };
 		FC2F2B452AEC0571003E104E /* TextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2F2B432AEC0571003E104E /* TextTableViewCell.swift */; };
 		FC2F2B462AEC0571003E104E /* TextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC2F2B442AEC0571003E104E /* TextTableViewCell.xib */; };
+		FC4D8CC82AF6783100BCEB2B /* SegmentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4D8CC72AF6783100BCEB2B /* SegmentationViewController.swift */; };
 		FC5A0B662AE69B510024F28B /* RiskFactorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5A0B652AE69B510024F28B /* RiskFactorsViewController.swift */; };
 		FC67EFA92AEAD69400E5CF00 /* DateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC67EFA72AEAD69400E5CF00 /* DateTableViewCell.swift */; };
 		FC67EFAA2AEAD69400E5CF00 /* DateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC67EFA82AEAD69400E5CF00 /* DateTableViewCell.xib */; };
@@ -55,9 +56,9 @@
 		FCD671AC2AE218EA0083FDC2 /* PatitentsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD671AB2AE218EA0083FDC2 /* PatitentsData.swift */; };
 		FCD850C92AEC0C60001925ED /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD850C82AEC0C60001925ED /* UIView.swift */; };
 		FCD850CB2AEC156B001925ED /* AnamneseInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD850CA2AEC156B001925ED /* AnamneseInfo.swift */; };
+		FCDF8B202AF184650000D39B /* CPFValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDF8B1F2AF184650000D39B /* CPFValidator.swift */; };
 		FCEA347C2AE6868C001B35B4 /* NewAvaliationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEA347B2AE6868C001B35B4 /* NewAvaliationViewController.swift */; };
 		FCEDD5F92AEC4C6400B6943A /* AnamneseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEDD5F82AEC4C6400B6943A /* AnamneseData.swift */; };
-		FCEE46552AE9AD9700C248C8 /* RegisterPatient.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCEE46542AE9AD9700C248C8 /* RegisterPatient.storyboard */; };
 		FCEE46572AE9ADCB00C248C8 /* RegisterPatientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEE46562AE9ADCB00C248C8 /* RegisterPatientViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -91,6 +92,7 @@
 		FC2A19AB2AE8A4E30009ADB4 /* carouselTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = carouselTableViewCell.xib; sourceTree = "<group>"; };
 		FC2F2B432AEC0571003E104E /* TextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTableViewCell.swift; sourceTree = "<group>"; };
 		FC2F2B442AEC0571003E104E /* TextTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextTableViewCell.xib; sourceTree = "<group>"; };
+		FC4D8CC72AF6783100BCEB2B /* SegmentationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentationViewController.swift; sourceTree = "<group>"; };
 		FC5A0B652AE69B510024F28B /* RiskFactorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiskFactorsViewController.swift; sourceTree = "<group>"; };
 		FC67EFA72AEAD69400E5CF00 /* DateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTableViewCell.swift; sourceTree = "<group>"; };
 		FC67EFA82AEAD69400E5CF00 /* DateTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DateTableViewCell.xib; sourceTree = "<group>"; };
@@ -112,9 +114,9 @@
 		FCD671AB2AE218EA0083FDC2 /* PatitentsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatitentsData.swift; sourceTree = "<group>"; };
 		FCD850C82AEC0C60001925ED /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		FCD850CA2AEC156B001925ED /* AnamneseInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnamneseInfo.swift; sourceTree = "<group>"; };
+		FCDF8B1F2AF184650000D39B /* CPFValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPFValidator.swift; sourceTree = "<group>"; };
 		FCEA347B2AE6868C001B35B4 /* NewAvaliationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAvaliationViewController.swift; sourceTree = "<group>"; };
 		FCEDD5F82AEC4C6400B6943A /* AnamneseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnamneseData.swift; sourceTree = "<group>"; };
-		FCEE46542AE9AD9700C248C8 /* RegisterPatient.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RegisterPatient.storyboard; sourceTree = "<group>"; };
 		FCEE46562AE9ADCB00C248C8 /* RegisterPatientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPatientViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -148,6 +150,7 @@
 		CE0FEC322ABF64E20030A8C8 /* Cicatribio */ = {
 			isa = PBXGroup;
 			children = (
+				FCDF8B1E2AF184550000D39B /* Utils */,
 				FCD850C72AEC0C44001925ED /* Extensions */,
 				FCD016BF2AE483BB0055B2D7 /* Components */,
 				FCCAC3EB2AE303290083AD43 /* Controllers */,
@@ -238,6 +241,7 @@
 				CE0FEC492AC899380030A8C8 /* LoginViewController.swift */,
 				FCEA347B2AE6868C001B35B4 /* NewAvaliationViewController.swift */,
 				FC5A0B652AE69B510024F28B /* RiskFactorsViewController.swift */,
+				FC4D8CC72AF6783100BCEB2B /* SegmentationViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -292,10 +296,17 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		FCDF8B1E2AF184550000D39B /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				FCDF8B1F2AF184650000D39B /* CPFValidator.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		FCEE464F2AE9AD4900C248C8 /* CreatePatient */ = {
 			isa = PBXGroup;
 			children = (
-				FCEE46542AE9AD9700C248C8 /* RegisterPatient.storyboard */,
 				FCEE46562AE9ADCB00C248C8 /* RegisterPatientViewController.swift */,
 			);
 			path = CreatePatient;
@@ -369,7 +380,6 @@
 				FC2A19A12AE879390009ADB4 /* ImagePickerCustomTableViewCell.xib in Resources */,
 				FC2A19A62AE8918E0009ADB4 /* AnamnesesView.storyboard in Resources */,
 				CE0FEC3D2ABF64E30030A8C8 /* Assets.xcassets in Resources */,
-				FCEE46552AE9AD9700C248C8 /* RegisterPatient.storyboard in Resources */,
 				CE0FEC3B2ABF64E20030A8C8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -392,6 +402,7 @@
 				FC2A198E2AE6F9680009ADB4 /* SelfCare.swift in Sources */,
 				FCD671A62AE19BD70083FDC2 /* MyTableViewCell.swift in Sources */,
 				FC2A19AC2AE8A4E30009ADB4 /* carouselTableViewCell.swift in Sources */,
+				FCDF8B202AF184650000D39B /* CPFValidator.swift in Sources */,
 				CE0FEC382ABF64E20030A8C8 /* ViewController.swift in Sources */,
 				FCCAC2152AF025100065673D /* FeridaInfo.swift in Sources */,
 				CE0FEC482ABF69EF0030A8C8 /* CustomAuthTextField.swift in Sources */,
@@ -404,6 +415,7 @@
 				FC2A19A02AE879390009ADB4 /* ImagePickerCustomTableViewCell.swift in Sources */,
 				FCEA347C2AE6868C001B35B4 /* NewAvaliationViewController.swift in Sources */,
 				FCCAC2132AF01E330065673D /* InjuryInfo.swift in Sources */,
+				FC4D8CC82AF6783100BCEB2B /* SegmentationViewController.swift in Sources */,
 				CE0FEC4A2AC899380030A8C8 /* LoginViewController.swift in Sources */,
 				FC67EFA92AEAD69400E5CF00 /* DateTableViewCell.swift in Sources */,
 				FC2A198C2AE6F62E0009ADB4 /* HygieneType.swift in Sources */,

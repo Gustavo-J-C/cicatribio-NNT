@@ -200,6 +200,108 @@ struct ApiManager {
         }
     }
 
+    func checkerPost(b64: String, completion: @escaping (Result<[String: Any], Error>) -> Void) {
+        let url = URL(string: "https://identify-sticker-app-ycujh.ondigitalocean.app/verifyImage")!
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        
+        // Crie um limite de dados multipart
+        let boundary = "Boundary-\(UUID().uuidString)"
+        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+        
+        var body = Data()
+        
+        // Adicione o campo "b64" como parte do corpo multipart
+        body.append("--\(boundary)\r\n".data(using: .utf8)!)
+        body.append("Content-Disposition: form-data; name=\"b64\"\r\n\r\n".data(using: .utf8)!)
+        body.append(b64.data(using: .utf8)!)
+        body.append("\r\n".data(using: .utf8)!)
+        
+        // Adicione a parte final do limite multipart
+        body.append("--\(boundary)--\r\n".data(using: .utf8)!)
+        
+        request.httpBody = body
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            guard let data = data else {
+                let emptyDataError = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "No data received"])
+                completion(.failure(emptyDataError))
+                return
+            }
+            
+            do {
+                if let jsonObject = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                    completion(.success(jsonObject))
+                } else {
+                    let jsonParsingError = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Failed to parse JSON"])
+                    completion(.failure(jsonParsingError))
+                }
+            } catch {
+                completion(.failure(error))
+            }
+        }
+        
+        task.resume()
+    }
+
+    
+    func postToSegImg(key_img: String, img_id: Int, b64img: String, completion: @escaping (Result<[String: Any], Error>) -> Void) {
+        let url = URL(string: "https://segmentation-app-b9v68.ondigitalocean.app/segImg")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        
+        // Crie um dicionário com os dados a serem enviados como JSON
+        let postDictionary: [String: Any] = [
+            "key_img": key_img,
+            "img_id": img_id,
+            "imgs": [b64img]
+        ]
+        
+        do {
+            // Serialize o dicionário como JSON
+            let jsonData = try JSONSerialization.data(withJSONObject: postDictionary, options: [])
+            
+            // Defina o corpo da solicitação como dados JSON
+            request.httpBody = jsonData
+            
+            // Defina o cabeçalho "Content-Type" para indicar que você está enviando JSON
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                if let error = error {
+                    completion(.failure(error))
+                    return
+                }
+                
+                guard let data = data else {
+                    let emptyDataError = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "No data received"])
+                    completion(.failure(emptyDataError))
+                    return
+                }
+                
+                do {
+                    if let jsonObject = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                        completion(.success(jsonObject))
+                    } else {
+                        let jsonParsingError = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Failed to parse JSON"])
+                        completion(.failure(jsonParsingError))
+                    }
+                } catch {
+                    completion(.failure(error))
+                }
+            }
+            
+            task.resume()
+        } catch {
+            completion(.failure(error))
+        }
+    }
     
     func fetchMobilityTypes() {
         let endpoint = "tipoMobilidade"
