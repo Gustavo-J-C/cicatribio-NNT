@@ -49,4 +49,7 @@ class SegmentationViewController: UIViewController {
     @IBAction func goBack(_ sender: Any) {
         self.dismiss(animated: true, completion:  nil)
     }
+    @IBAction func endAnamneseAction(_ sender: UIButton) {
+        dismissToAnamnesesViewController()
+    }
 }

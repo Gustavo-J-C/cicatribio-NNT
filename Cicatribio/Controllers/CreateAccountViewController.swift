@@ -17,22 +17,38 @@ class CreateAccountViewController: UIViewController {
     @IBOutlet weak var confirmPasswordTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        PhoneTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        CPFTextField.addTarget(self, action: #selector(cpfTextFieldDidChange), for: .editingChanged)
     }
     
     @IBAction func registerButtonPress(_ sender: UIButton) {
-        let endpointURL = URL(string: "http://localhost:3333/usuarioRegister")!
-
-        guard let nome = nameTextField.text,
-              let email = emailTextField.text,
-              let cpf = CPFTextField.text,
-              let phone = PhoneTextField.text,
-              let senha = passwordTextField.text,
-              let confirmarSenha = confirmPasswordTextField.text else {
+        guard let cpf = CPFTextField.text, cpf.isCPF else {
+            print("CPF inválido")
+            self.view.showToast(message: "Favor insira um CPF válido", isSuccess: false)
             return
         }
 
+        // Validação do campo de telefone
+        guard let phone = PhoneTextField.text, isValidPhoneNumber(phone) else {
+            self.view.showToast(message: "Favor insira um telefone válido", isSuccess: false)
+            return
+        }
+        
+        let endpointURL = URL(string: "http://localhost:3333/usuarioRegister")!
+
+        guard let nome = nameTextField.text, !nome.isEmpty,
+              let email = emailTextField.text, !email.isEmpty,
+              let senha = passwordTextField.text, !senha.isEmpty,
+              let confirmarSenha = confirmPasswordTextField.text, !confirmarSenha.isEmpty else {
+            self.view.showToast(message: "Favor preencher todos os campos", isSuccess: false)
+            return
+        }
+
+        if senha != confirmarSenha {
+            self.view.showToast(message: "As senhas não coincidem", isSuccess: false)
+            return
+        }
+        
         // Crie os parâmetros que você deseja enviar como um dicionário
         let parameters: [String: Any] = [
             "no_completo": nome,
@@ -96,8 +112,62 @@ class CreateAccountViewController: UIViewController {
         // Inicie a tarefa
         task.resume()
     }
+    
     @IBAction func goBackButtonPress(_ sender: UIButton) {
         self.performSegue(withIdentifier: "goBack", sender: self)
     }
+    
+    @objc func cpfTextFieldDidChange() {
+        if let text = CPFTextField.text {
+            // Remover caracteres não numéricos (como espaços e traços)
+            let numericText = text.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
+            
+            if numericText.count == 11 {
+                if numericText.isCPF {
+                    CPFTextField.text = formattedCPF(numericText)
+                } else {
+                    print("CPF inválido")
+                }
+            }
+        }
+    }
+    
+    func isValidPhoneNumber(_ phone: String) -> Bool {
+        let numericText = phone.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
+        
+        // Verificar se o número de telefone tem 11 dígitos
+        if numericText.count != 11 {
+            return false
+        }
+        
+        // Verificar se todos os caracteres são numéricos
+        if let _ = Int(numericText) {
+            // Formatar como (XX) XXXXX-XXXX
+            let formattedPhoneNumber = "(\(numericText.prefix(2))) \(numericText.dropFirst(2).prefix(5))-\(numericText.dropFirst(7))"
+            PhoneTextField.text = formattedPhoneNumber
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func formattedCPF(_ cpf: String) -> String {
+        let formattedCPF = "\(cpf.prefix(3)).\(cpf.dropFirst(3).prefix(3)).\(cpf.dropFirst(6).prefix(3))-\(cpf.suffix(2))"
+        return formattedCPF
+    }
 
+    @objc func textFieldDidChange() {
+        if let text = PhoneTextField.text {
+            let numericText = text.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
+            
+            if numericText.count > 11 {
+                PhoneTextField.text = String(numericText.prefix(11))
+            }
+            
+            if numericText.count == 11 {
+                let formattedPhoneNumber = "(\(numericText.prefix(2))) \(numericText.dropFirst(2).prefix(5))-\(numericText.dropFirst(7))"
+                PhoneTextField.text = formattedPhoneNumber
+            }
+        }
+    }
 }
