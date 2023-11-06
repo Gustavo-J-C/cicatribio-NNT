@@ -27,6 +27,8 @@ class TextTableViewCell: UITableViewCell {
         titleLabel.text = title
         textField.delegate = self
         self.delegate = delegate
+        
+        textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
     }
     
     override func awakeFromNib() {
@@ -40,10 +42,12 @@ class TextTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    @objc func textFieldDidChange() {
+        delegate?.textFieldDidChange(textField.text ?? "", for: titleLabel.text ?? "")
+    }
+    
 }
 
 extension TextTableViewCell: UITextFieldDelegate {
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        delegate?.textFieldDidChange(textField.text ?? "", for: titleLabel.text ?? "")
-    }
+
 }

@@ -24,74 +24,111 @@ class RegisterPatientViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         datePicker.datePickerMode = .date
-        // Do any additional setup after loading the view.
+        CPFTextField.addTarget(self, action: #selector(cpfTextFieldDidChange), for: .editingChanged)
+        phoneTextField.addTarget(self, action: #selector(phoneTextFieldDidChange), for: .editingChanged)
     }
     @IBAction func pressSaveButton(_ sender: UIButton) {
+        
+        guard let cpf = CPFTextField.text, cpf.isCPF else {
+            print("CPF inválido")
+            self.view.showToast(message: "Favor insira um CPF válido", isSuccess: false)
+            return
+        }
+
+        // Validação do campo de telefone
+        guard let phone = phoneTextField.text, isValidPhoneNumber(phone) else {
+            self.view.showToast(message: "Favor insira um telefone válido", isSuccess: false)
+            return
+        }
+        
+        guard let email = emailTextField.text, email.isEmail else {
+            self.view.showToast(message: "Favor insira um email válido", isSuccess: false)
+            return
+        }
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yyyy"
         let dateString = dateFormatter.string(from: datePicker.date)
         let patientData: [String: Any] = [
             "no_completo": nameTextField.text!,
-            "nu_cpf": CPFTextField.text!,
-            "nu_telefone_completo": phoneTextField.text!,
+            "nu_cpf": cpf,
+            "nu_telefone_completo": phone,
             "ds_sexo": sexTextField.text!,
             "ds_cor_raca": colorTextField.text!,
             "ds_ocupacao": ocupationTextField.text!,
-            "ds_email": emailTextField.text!,
+            "ds_email": email,
             "dt_nascimento": dateString
         ]
-        if isValidCPF(CPFTextField.text) {
+        if CPFTextField.text!.isCPF {
             apiManager.postData(endpoint: "pacientes", postData: patientData, dataType: PatientsData.self) { (data, error) in
                 if let error {
                     print("Erro ao cadastrar usuário", error)
-                } else if let data {
-                    print(data)
+                    DispatchQueue.main.async {
+                        self.view.showToast(message: "Erro ao cadastrar usuário", isSuccess: false)
+                    }
+                } else if data != nil {
+                    DispatchQueue.main.async {
+                        self.view.showToast(message: "Paciente cadastrado com sucesso", isSuccess: true)
+                    }
+                    self.dismiss(animated: true, completion: nil)
                 }
             }
         } else {
-            showAlert(message: "CPF inválido. Por favor, insira um CPF válido.")
+            self.view.showToast(message: "CPF inválido. Por favor, insira um CPF válido.", isSuccess: false)
+        }
+    }
+
+    @objc func cpfTextFieldDidChange() {
+        if let text = CPFTextField.text {
+            // Remover caracteres não numéricos (como espaços e traços)
+            let numericText = text.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
+            
+            if numericText.count == 11 {
+                if numericText.isCPF {
+                    CPFTextField.text = formattedCPF(numericText)
+                } else {
+                    print("CPF inválido")
+                }
+            }
         }
     }
     
-    func isValidCPF(_ cpf: String?) -> Bool {
-        guard let cpf = cpf else { return false }
+    func formattedCPF(_ cpf: String) -> String {
+        let formattedCPF = "\(cpf.prefix(3)).\(cpf.dropFirst(3).prefix(3)).\(cpf.dropFirst(6).prefix(3))-\(cpf.suffix(2))"
+        return formattedCPF
+    }
+    
+    @objc func phoneTextFieldDidChange() {
+        if let text = phoneTextField.text {
+            let numericText = text.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
+            
+            if numericText.count > 11 {
+                phoneTextField.text = String(numericText.prefix(11))
+            }
+            
+            if numericText.count == 11 {
+                let formattedPhoneNumber = "(\(numericText.prefix(2))) \(numericText.dropFirst(2).prefix(5))-\(numericText.dropFirst(7))"
+                phoneTextField.text = formattedPhoneNumber
+            }
+        }
+    }
+    
+    func isValidPhoneNumber(_ phone: String) -> Bool {
+        let numericText = phone.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
         
-        // Remova caracteres não numéricos e verifique se o CPF tem 11 dígitos
-        let cleanedCPF = cpf.replacingOccurrences(of: "\\D", with: "", options: .regularExpression)
-        guard cleanedCPF.count == 11 else { return false }
-        
-        // Verifique se todos os dígitos são iguais (CPF inválido se forem)
-        let firstDigit = cleanedCPF.first!
-        if Set(cleanedCPF).count == 1 {
+        // Verificar se o número de telefone tem 11 dígitos
+        if numericText.count != 11 {
             return false
         }
         
-        // Cálculo dos dígitos verificadores
-        let digits = cleanedCPF.map { Int(String($0))! }
-        let firstCheckDigit = cpfDigit(for: Array(digits.prefix(9)))
-        let secondCheckDigit = cpfDigit(for: Array(digits.prefix(9) + [firstCheckDigit]))
-        
-        // Verifique se os dígitos verificadores correspondem
-        return firstCheckDigit == digits[9] && secondCheckDigit == digits[10]
+        // Verificar se todos os caracteres são numéricos
+        if let _ = Int(numericText) {
+            // Formatar como (XX) XXXXX-XXXX
+            let formattedPhoneNumber = "(\(numericText.prefix(2))) \(numericText.dropFirst(2).prefix(5))-\(numericText.dropFirst(7))"
+            phoneTextField.text = formattedPhoneNumber
+            return true
+        } else {
+            return false
+        }
     }
-
-        // Função para calcular um dígito verificador do CPF
-        func cpfDigit(for digits: [Int]) -> Int {
-            var sum = 0
-            for (index, digit) in digits.enumerated() {
-                sum += digit * (digits.count + 1 - index)
-            }
-            let remainder = sum % 11
-            return remainder < 2 ? 0 : 11 - remainder
-        }
-
-        // Função para exibir uma mensagem de alerta
-        func showAlert(message: String) {
-            let alertController = UIAlertController(title: "Erro", message: message, preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-            alertController.addAction(okAction)
-            present(alertController, animated: true, completion: nil)
-        }
-    
 }

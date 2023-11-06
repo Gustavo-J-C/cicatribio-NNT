@@ -34,10 +34,14 @@ class CreateAccountViewController: UIViewController {
             return
         }
         
+        guard let email = emailTextField.text, email.isEmail else {
+            self.view.showToast(message: "Favor insira um email válido", isSuccess: false)
+            return
+        }
+        
         let endpointURL = URL(string: "http://localhost:3333/usuarioRegister")!
 
         guard let nome = nameTextField.text, !nome.isEmpty,
-              let email = emailTextField.text, !email.isEmpty,
               let senha = passwordTextField.text, !senha.isEmpty,
               let confirmarSenha = confirmPasswordTextField.text, !confirmarSenha.isEmpty else {
             self.view.showToast(message: "Favor preencher todos os campos", isSuccess: false)

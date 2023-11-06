@@ -9,10 +9,6 @@ import UIKit
 
 class NewAnamenseViewController: UIViewController {
     
-    var selectedDate: Date?
-    var weightKg: Double?
-    var heightM: Double?
-    
     var anamneseInfo = AnamneseInfo()
     @IBOutlet weak var tableView: UITableView!
 //    var cordinator: UICoordinator
@@ -21,6 +17,7 @@ class NewAnamenseViewController: UIViewController {
         tableView.dataSource = self
         tableView.register(DateTableViewCell.nib(), forCellReuseIdentifier: DateTableViewCell.identifier)
         tableView.register(TextTableViewCell.nib(), forCellReuseIdentifier: TextTableViewCell.identifier)
+        anamneseInfo.selectedDate = Date()
     }
     
 
