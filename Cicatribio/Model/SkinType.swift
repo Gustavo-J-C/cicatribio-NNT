@@ -9,7 +9,6 @@ import Foundation
 
 class SkinType: DataOptionType, Decodable {
 
-    let id: Int
     let ds_tipo_tecidos: String
     let createdAt: String
     let updatedAt: String
@@ -23,12 +22,12 @@ class SkinType: DataOptionType, Decodable {
     
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        id = try  container.decode(Int.self, forKey: .id)
         ds_tipo_tecidos = try container.decode(String.self, forKey: .ds_tipo_tecidos)
         createdAt = try container.decode(String.self, forKey: .createdAt)
         updatedAt = try container.decode (String.self, forKey: .updatedAt)
         
         super.init(value: ds_tipo_tecidos, type: .hygiene)
+        id = try  container.decode(Int.self, forKey: .id)
     }
     
 }

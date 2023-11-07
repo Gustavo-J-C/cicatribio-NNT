@@ -20,6 +20,9 @@ class NewAnamenseViewController: UIViewController {
         anamneseInfo.selectedDate = Date()
     }
     
+    func loadData() {
+        
+    }
 
     @IBAction func handleBack(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)

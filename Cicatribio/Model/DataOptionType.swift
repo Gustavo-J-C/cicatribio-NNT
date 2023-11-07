@@ -16,7 +16,8 @@ enum OptionsType {
 
 class DataOptionType {
     let value: String
-    var type: OptionsType
+    let type: OptionsType
+    var id: Int!
 
     init(value: String, type: OptionsType) {
         self.value = value

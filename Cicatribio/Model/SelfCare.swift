@@ -8,7 +8,6 @@
 import Foundation
 
 class SelfCareType: DataOptionType, Decodable {
-    let id: Int
     let ds_auto_cuidado: String
     let createdAt: String
     let updatedAt: String
@@ -22,10 +21,11 @@ class SelfCareType: DataOptionType, Decodable {
     
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        id = try container.decode(Int.self, forKey: .id)
         ds_auto_cuidado = try container.decode(String.self, forKey: .ds_auto_cuidado)
         createdAt = try container.decode(String.self, forKey: .createdAt)
         updatedAt = try container.decode(String.self, forKey: .updatedAt)
+        
         super.init(value: ds_auto_cuidado, type: OptionsType.selfCare)
+        id = try  container.decode(Int.self, forKey: .id)
     }
 }

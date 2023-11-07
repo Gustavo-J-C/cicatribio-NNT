@@ -51,14 +51,15 @@ class RegisterPatientViewController: UIViewController {
         let dateString = dateFormatter.string(from: datePicker.date)
         let patientData: [String: Any] = [
             "no_completo": nameTextField.text!,
-            "nu_cpf": cpf,
-            "nu_telefone_completo": phone,
-            "ds_sexo": sexTextField.text!,
-            "ds_cor_raca": colorTextField.text!,
+            "nu_cpf": cpf, // Certifique-se de validar o CPF antes da conversão
+            "nu_telefone_completo": Int(phone) ?? 0, // Certifique-se de validar o telefone antes da conversão
+            "ds_sexo": Int(sexTextField.text!) ?? 0, // Certifique-se de validar o valor de sexo antes da conversão
+            "ds_cor_raca": Int(colorTextField.text!) ?? 0, // Certifique-se de validar o valor de cor/raça antes da conversão
             "ds_ocupacao": ocupationTextField.text!,
             "ds_email": email,
             "dt_nascimento": dateString
         ]
+
         if CPFTextField.text!.isCPF {
             apiManager.postData(endpoint: "pacientes", postData: patientData, dataType: PatientsData.self) { (data, error) in
                 if let error {

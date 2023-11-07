@@ -24,4 +24,6 @@ struct AnamneseInfo {
     var exudateAmount: Int?
     
     var base64ImageData: String?
+    
+    var editing: Bool = false
 }

@@ -19,6 +19,14 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let userDefaults = UserDefaults.standard.data(forKey: "currentUser"),
+           let user = try? JSONDecoder().decode(User.self, from: userDefaults) {
+            // Um usuário foi encontrado, vá para a tela de home e configure o UserManager
+            UserManager.shared.currentUser = user
+            if let tabBarController = storyboard?.instantiateViewController(withIdentifier: "MainTabBar") {
+                present(tabBarController, animated: true, completion: nil)
+            }
+        }
     }
 
     @IBAction func loginButtonPress(_ sender: UIButton) {
@@ -38,7 +46,17 @@ class LoginViewController: UIViewController {
             if success, let user = user {
                 DispatchQueue.main.async {
                     self.view.showToast(message: "Login com sucesso", isSuccess: true)
+                    
+                    let userDefaults = UserDefaults.standard
+                    let userEncoder = JSONEncoder()
+                    
+                    if let encodedUser = try? userEncoder.encode(user) {
+                        userDefaults.set(encodedUser, forKey: "currentUser")
+                    }
+                    
                     UserManager.shared.currentUser = user
+                    self.passwordTextField.text = ""
+                    self.emailTextField.text = ""
                     self.performSegue(withIdentifier: "goToNext", sender: self)
                 }
             } else {

@@ -45,7 +45,7 @@
 		FC7BBC842AF6BFB60005395F /* EditProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC7BBC832AF6BFB60005395F /* EditProfile.storyboard */; };
 		FCA1692D2AE69E7E008C6B50 /* MobilitType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA1692C2AE69E7E008C6B50 /* MobilitType.swift */; };
 		FCA169302AE69F9C008C6B50 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA1692F2AE69F9C008C6B50 /* UserManager.swift */; };
-		FCA169322AE6A293008C6B50 /* userData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA169312AE6A293008C6B50 /* userData.swift */; };
+		FCA169322AE6A293008C6B50 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA169312AE6A293008C6B50 /* UserData.swift */; };
 		FCBD9AF92AF92A950030B6EB /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBD9AF82AF92A950030B6EB /* String.swift */; };
 		FCCAC2112AF016D90065673D /* InjuryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCAC2102AF016D90065673D /* InjuryType.swift */; };
 		FCCAC2132AF01E330065673D /* InjuryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCAC2122AF01E330065673D /* InjuryInfo.swift */; };
@@ -109,7 +109,7 @@
 		FC7BBC832AF6BFB60005395F /* EditProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditProfile.storyboard; sourceTree = "<group>"; };
 		FCA1692C2AE69E7E008C6B50 /* MobilitType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobilitType.swift; sourceTree = "<group>"; };
 		FCA1692F2AE69F9C008C6B50 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
-		FCA169312AE6A293008C6B50 /* userData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userData.swift; sourceTree = "<group>"; };
+		FCA169312AE6A293008C6B50 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		FCBD9AF82AF92A950030B6EB /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		FCCAC2102AF016D90065673D /* InjuryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjuryType.swift; sourceTree = "<group>"; };
 		FCCAC2122AF01E330065673D /* InjuryInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjuryInfo.swift; sourceTree = "<group>"; };
@@ -301,7 +301,7 @@
 			children = (
 				FCD671AB2AE218EA0083FDC2 /* PatitentsData.swift */,
 				FCD850CA2AEC156B001925ED /* AnamneseInfo.swift */,
-				FCA169312AE6A293008C6B50 /* userData.swift */,
+				FCA169312AE6A293008C6B50 /* UserData.swift */,
 				FCD016C62AE4A3E20055B2D7 /* Anamnese.swift */,
 				FCA1692C2AE69E7E008C6B50 /* MobilitType.swift */,
 				FCCAC2102AF016D90065673D /* InjuryType.swift */,
@@ -434,7 +434,7 @@
 				CE0FEC4C2AC89AC60030A8C8 /* CreateAccountViewController.swift in Sources */,
 				FC19188D2AF6CE9900E09089 /* PhoneTableViewCell.swift in Sources */,
 				FCD671A92AE1C00A0083FDC2 /* ApiManager.swift in Sources */,
-				FCA169322AE6A293008C6B50 /* userData.swift in Sources */,
+				FCA169322AE6A293008C6B50 /* UserData.swift in Sources */,
 				FCD671AC2AE218EA0083FDC2 /* PatitentsData.swift in Sources */,
 				FC2A19982AE80AAC0009ADB4 /* InjurySite.swift in Sources */,
 				FCEDD5F92AEC4C6400B6943A /* AnamneseData.swift in Sources */,

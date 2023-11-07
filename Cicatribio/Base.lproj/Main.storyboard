@@ -393,7 +393,7 @@
             <objects>
                 <viewController storyboardIdentifier="HomeViewController" id="6U0-75-sjX" customClass="HomeViewController" customModule="Cicatribio" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hsp-sz-dxF">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="847"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Pesquise o paciente" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="An0-Q2-h9r">
@@ -448,11 +448,11 @@
             <objects>
                 <viewController storyboardIdentifier="PatientsAnamneses" id="N2l-mE-qsc" customClass="AnamnesesViewController" customModule="Cicatribio" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1Cw-UO-k1H">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="847"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ILm-jV-DfB">
-                                <rect key="frame" x="30" y="821.5" width="354" height="34.5"/>
+                                <rect key="frame" x="30" y="772.5" width="354" height="34.5"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Nova Anamneme">
                                     <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
@@ -462,7 +462,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="E6h-cw-Koc">
-                                <rect key="frame" x="0.0" y="44" width="414" height="772"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="723"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="Bhc-p6-e5c">
@@ -726,6 +726,9 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Finalizar sessão">
                                     <color key="baseBackgroundColor" red="0.87058823529411766" green="0.16862745098039217" blue="0.16862745098039217" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="logout:" destination="RNV-aA-hkw" eventType="touchUpInside" id="uBG-wB-7Sw"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="E7h-iV-TwN"/>
@@ -764,7 +767,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="UEO-QE-k5f">
             <objects>
-                <tabBarController id="Dkf-bW-AM0" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainTabBar" interactionActivityTrackingBaseName="MainTabBar" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Dkf-bW-AM0" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="RKp-z0-DJ9"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="3ME-dv-X77">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
@@ -1247,7 +1250,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="IZ7-ZD-CDW"/>
+        <segue reference="onT-YQ-kTn"/>
         <segue reference="amR-Ov-Vw0"/>
     </inferredMetricsTieBreakers>
     <resources>

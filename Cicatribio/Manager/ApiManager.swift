@@ -168,6 +168,43 @@ struct ApiManager {
         }
     }
     
+    func deleteAnamnese(mobUsuariosId: String, id: String, completionHandler: @escaping (Bool) -> Void) {
+        // Construa a URL com base nos parâmetros mob_usuarios_id e id
+        let urlString = "http://localhost:3333/anamnese/\(mobUsuariosId)/\(id)"
+        guard let url = URL(string: urlString) else {
+            completionHandler(false) // URL inválida
+            return
+        }
+        
+        // Crie uma solicitação DELETE
+        var request = URLRequest(url: url)
+        request.httpMethod = "DELETE"
+        
+        // Crie uma sessão URLSession
+        let session = URLSession.shared
+        
+        // Crie uma tarefa de dataTask para fazer a solicitação DELETE
+        let task = session.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                print("Erro na solicitação DELETE: \(error.localizedDescription)")
+                completionHandler(false) // Erro na solicitação
+                return
+            }
+            
+            if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
+                // A solicitação foi bem-sucedida (código de status 200)
+                completionHandler(true)
+            } else {
+                // A resposta do servidor não é válida
+                completionHandler(false)
+            }
+        }
+        
+        // Inicie a tarefa
+        task.resume()
+    }
+
+    
     func postData<T: Decodable>(endpoint: String, postData: [String: Any], dataType: T.Type, completion: @escaping (T?, Error?) -> Void) {
         let urlString = "\(apiUrl)\(endpoint)"
         guard let apiURL = URL(string: urlString) else {

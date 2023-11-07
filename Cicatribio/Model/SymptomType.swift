@@ -8,7 +8,6 @@
 import Foundation
 
 class SymptomType: DataOptionType, Decodable {
-    let id: Int
     let ds_tipo_sintomas: String
     let createdAt: String
     let updatedAt: String
@@ -22,11 +21,11 @@ class SymptomType: DataOptionType, Decodable {
     
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        id = try  container.decode(Int.self, forKey: .id)
         ds_tipo_sintomas = try container.decode(String.self, forKey: .ds_tipo_sintomas)
         createdAt = try container.decode(String.self, forKey: .createdAt)
         updatedAt = try container.decode (String.self, forKey: .updatedAt)
         
         super.init(value: ds_tipo_sintomas, type: .hygiene)
+        id = try  container.decode(Int.self, forKey: .id)
     }
 }

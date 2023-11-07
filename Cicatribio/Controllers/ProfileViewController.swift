@@ -20,6 +20,12 @@ class ProfileViewController: UIViewController {
         emailLabel.text = UserManager.shared.currentUser?.ds_email
     }
 
+    @IBAction func logout(_ sender: UIButton) {
+        UserDefaults.standard.removeObject(forKey: "currentUser")
+        UserManager.shared.currentUser = nil
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     func handleEditProfile() {
         let storyboard = UIStoryboard(name: "EditProfile", bundle: .init(for: EditProfileViewController.self))
         guard let viewController = storyboard.instantiateViewController(withIdentifier: EditProfileViewController.identifier) as? EditProfileViewController else { return }

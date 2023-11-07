@@ -52,6 +52,16 @@ class SelectorTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    @objc func cancelButtonTapped() {
+        // Ação quando o botão "Cancelar" é tocado
+        searchTextField.resignFirstResponder() // Fecha o teclado
+    }
+
+    @objc func doneButtonTapped() {
+        // Ação quando o botão "Selecionar" é tocado
+        pickerView.isHidden = false // Exibe o UIPickerView (se necessário)
+    }
+    
     @objc func textFieldTapped() {
         // O UITextField foi tocado, você pode realizar alguma ação aqui
         // Por exemplo, abrir o UIPickerView
@@ -75,9 +85,10 @@ extension SelectorTableViewCell: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let selectedValue = objectData?[row].value
-
+        let selectedId = objectData?[row].id
+    
         searchTextField.text = selectedValue
         searchTextField.resignFirstResponder()
-        delegate?.pickerViewDidSelectValue(row, tag: cellTag!)
+        delegate?.pickerViewDidSelectValue(selectedId!, tag: cellTag!)
     }
 }

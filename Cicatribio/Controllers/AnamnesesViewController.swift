@@ -45,12 +45,6 @@ class AnamnesesViewController: UIViewController, ApiManagerDelegate {
     
     @IBAction func handleNewAnamnese(_ sender: Any) {
         self.performSegue(withIdentifier: "goToNext", sender: self)
-//        let storyboard = UIStoryboard(name: "RegisterPatient", bundle: .init(for: RegisterPatientViewController.self))
-//        guard let viewController = storyboard.instantiateViewController(withIdentifier: RegisterPatientViewController.identifier) as? RegisterPatientViewController else { return }
-
-//        viewController.hidesBottomBarWhenPushed = false
-
-//        navigationController?.pushViewController(viewController, animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -74,11 +68,22 @@ extension AnamnesesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let customCell = tableView.dequeueReusableCell(withIdentifier: CustomAnamneseCell.identifier, for: indexPath) as! CustomAnamneseCell
-        if let dtAnamnese = patientAnamneses[indexPath.row].dt_anamnese {
-            // Agora você pode usar dtAnamnese com segurança, pois não é nulo
-            customCell.configure(with: dtAnamnese)
-        }
+        customCell.configure(with: patientAnamneses[indexPath.row], parent: self, delegate: self)
+        
         return customCell
     }
     
+}
+
+extension AnamnesesViewController: CustomAnamneseCellDelegate {
+    func didDeleteItem() {
+        // Lidar com a notificação da exclusão aqui
+        // Use o índice para manipular o item correto
+        // Por exemplo, remova o item da fonte de dados
+        // e recarregue a tabela
+        self.apiManager.fetchData(endpoint: "anamneses/user/\(user.id)/\(currentPatient.id)", type: [Anamnese].self)
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
 }

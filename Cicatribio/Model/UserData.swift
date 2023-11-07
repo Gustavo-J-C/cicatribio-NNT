@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct User: Decodable {
+struct User: Decodable, Encodable {
     let id: Int
     let no_completo: String
     let ds_email: String
