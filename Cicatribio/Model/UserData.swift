@@ -9,9 +9,9 @@ import Foundation
 
 struct User: Decodable, Encodable {
     let id: Int
-    let no_completo: String
+    var no_completo: String?
     let ds_email: String
-    let nu_telefone_completo: String
+    var nu_telefone_completo: String?
     let nu_cpf: Int
     let createdAt: String
     let updatedAt: String

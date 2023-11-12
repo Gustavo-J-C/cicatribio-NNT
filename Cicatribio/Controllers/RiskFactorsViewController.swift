@@ -10,14 +10,20 @@ import UIKit
 class RiskFactorsViewController: UIViewController {
 
     var anamneseInfo = AnamneseInfo()
-    let titles = ["Tipo de mobilidade", "Autocuidado", "Tipo Higiene", "Tipo sintomas"]
-    let types : [[DataOptionType]?] = [UserManager.shared.mobilityTypes, UserManager.shared.selfCareTypes, UserManager.shared.hygieneTypes, UserManager.shared.symptomsTypes ]
+    let titles = ["Autocuidado", "Tipo Higiene", "Tipo sintomas"]
+    let types : [[DataOptionType]?] = [ UserManager.shared.selfCareTypes, UserManager.shared.hygieneTypes, UserManager.shared.symptomsTypes ]
+    
+    var reviewTypes: [DataOptionType]?
+    var review = false
+    var reviewData: Anamnese!
+    var riskId: Int!
     
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.register(SelectorTableViewCell.nib(), forCellReuseIdentifier: SelectorTableViewCell.identifier)
+        
     }
     
     @IBAction func handleBack(_ sender: UIButton) {
@@ -45,17 +51,17 @@ class RiskFactorsViewController: UIViewController {
 extension RiskFactorsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 3
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {            
         let customCell = tableView.dequeueReusableCell(withIdentifier: SelectorTableViewCell.identifier, for: indexPath) as! SelectorTableViewCell
             
             customCell.configure(with: types[indexPath.row]!, title: titles[indexPath.row], tag: indexPath.row)
             customCell.delegate = self
+        if review {
+            customCell.searchTextField.isUserInteractionEnabled = false
+        }
             return customCell
-//        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell\(indexPath.row + 1)", for: indexPath)
-        
-//        return cell
     }
 }
 

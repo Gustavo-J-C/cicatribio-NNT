@@ -28,7 +28,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate, ApiManagerDeleg
     @objc func searchTextFieldDidChange() {
         if let searchText = searchTextField.text, !searchText.isEmpty {
             // Use the searchText to filter patientsData
-            filteredPatientsData = patientsData.filter { $0.no_completo.localizedCaseInsensitiveContains(searchText) }
+            filteredPatientsData = patientsData.filter { $0.no_completo!.localizedCaseInsensitiveContains(searchText) }
         } else {
             // If the search field is empty, show all patientsData
             filteredPatientsData = patientsData
@@ -104,7 +104,7 @@ extension HomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let customCell = tableView.dequeueReusableCell(withIdentifier: MyTableViewCell.identifier, for: indexPath) as! MyTableViewCell
-        customCell.configure(with: filteredPatientsData[indexPath.row].no_completo, sex: filteredPatientsData[indexPath.row].ds_sexo, birthday: filteredPatientsData[indexPath.row].dt_nascimento)
+        customCell.configure(with: filteredPatientsData[indexPath.row].no_completo!, sex: filteredPatientsData[indexPath.row].ds_sexo!, birthday: filteredPatientsData[indexPath.row].dt_nascimento!)
         return customCell
     }
     

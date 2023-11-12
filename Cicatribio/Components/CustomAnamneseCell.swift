@@ -9,6 +9,7 @@ import UIKit
 
 protocol CustomAnamneseCellDelegate: AnyObject {
     func didDeleteItem()
+    func goToReview(with anamnese: Anamnese)
 }
 
 class CustomAnamneseCell: UITableViewCell {
@@ -20,6 +21,7 @@ class CustomAnamneseCell: UITableViewCell {
     
     let apiManager = ApiManager()
     var anamnese: Anamnese?
+    @IBOutlet weak var reviewButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
     
     static func nib() -> UINib{
@@ -45,6 +47,9 @@ class CustomAnamneseCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    @IBAction func handleReview(_ sender: UIButton) {
+        delegate?.goToReview(with: anamnese!)
+    }
     @IBAction func handleDelete(_ sender: UIButton) {
         if let mobUsuariosId = anamnese?.mob_usuarios_id, let id = anamnese?.id {
             

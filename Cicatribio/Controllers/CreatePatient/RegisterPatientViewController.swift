@@ -14,18 +14,36 @@ class RegisterPatientViewController: UIViewController {
     static let identifier: String = "RegisterPatientViewController"
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var CPFTextField: UITextField!
-    @IBOutlet weak var colorTextField: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var ocupationTextField: UITextField!
     @IBOutlet weak var phoneTextField: UITextField!
     @IBOutlet weak var sexTextField: UITextField!
     
+    
+    let sexPickerView = UIPickerView()
+    let sexPickerToolbar = UIToolbar()
+    
+    var sex: Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         datePicker.datePickerMode = .date
         CPFTextField.addTarget(self, action: #selector(cpfTextFieldDidChange), for: .editingChanged)
         phoneTextField.addTarget(self, action: #selector(phoneTextFieldDidChange), for: .editingChanged)
+        
+        sexPickerView.delegate = self
+        sexPickerView.dataSource = self
+        
+        // Configurar o UIToolbar
+        sexPickerToolbar.sizeToFit()
+        let doneButton = UIBarButtonItem(title: "Concluído", style: .done, target: self, action: #selector(doneSexPicker))
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        sexPickerToolbar.setItems([flexibleSpace, doneButton], animated: true)
+        
+        // Atribuir o UIPickerView como inputView para sexTextField
+        sexTextField.inputView = sexPickerView
+        sexTextField.inputAccessoryView = sexPickerToolbar
     }
     @IBAction func pressSaveButton(_ sender: UIButton) {
         
@@ -52,9 +70,9 @@ class RegisterPatientViewController: UIViewController {
         let patientData: [String: Any] = [
             "no_completo": nameTextField.text!,
             "nu_cpf": cpf, // Certifique-se de validar o CPF antes da conversão
-            "nu_telefone_completo": Int(phone) ?? 0, // Certifique-se de validar o telefone antes da conversão
-            "ds_sexo": Int(sexTextField.text!) ?? 0, // Certifique-se de validar o valor de sexo antes da conversão
-            "ds_cor_raca": Int(colorTextField.text!) ?? 0, // Certifique-se de validar o valor de cor/raça antes da conversão
+            "nu_telefone_completo": phone, // Certifique-se de validar o telefone antes da conversão
+            "ds_sexo": Int(sexTextField.text!) ?? 0,
+            "ds_cor_raca": NSNull(), // Certifique-se de validar o valor de cor/raça antes da conversão
             "ds_ocupacao": ocupationTextField.text!,
             "ds_email": email,
             "dt_nascimento": dateString
@@ -70,8 +88,9 @@ class RegisterPatientViewController: UIViewController {
                 } else if data != nil {
                     DispatchQueue.main.async {
                         self.view.showToast(message: "Paciente cadastrado com sucesso", isSuccess: true)
+                        self.clearFields()
                     }
-                    self.dismiss(animated: true, completion: nil)
+
                 }
             }
         } else {
@@ -79,6 +98,17 @@ class RegisterPatientViewController: UIViewController {
         }
     }
 
+    func clearFields() {
+        nameTextField.text = ""
+        CPFTextField.text = ""
+        datePicker.date = Date()
+        emailTextField.text = ""
+        ocupationTextField.text = ""
+        phoneTextField.text = ""
+        sexTextField.text = ""
+        sex = nil
+    }
+    
     @objc func cpfTextFieldDidChange() {
         if let text = CPFTextField.text {
             // Remover caracteres não numéricos (como espaços e traços)
@@ -131,5 +161,31 @@ class RegisterPatientViewController: UIViewController {
         } else {
             return false
         }
+    }
+}
+
+extension RegisterPatientViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return 2 // Dois itens: "Masculino" e "Feminino"
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return row == 0 ? "Feminino" : "Masculino"
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        sex = row
+    }
+    
+    @objc func doneSexPicker() {
+        if let selectedSex = sex {
+            sexTextField.text = selectedSex == 0 ? "Feminino" : "Masculino"
+            sex = selectedSex
+        }
+        sexTextField.resignFirstResponder()
     }
 }

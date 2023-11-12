@@ -3,4 +3,436 @@
    uuid = "64B28E76-2F8B-4D7B-B219-944EE94B94F1"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FAAD8BD7-9AA2-4075-B502-DB495AC70F4E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cicatribio/Controllers/ImageFeaturesViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "handleNextScreen(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BD6A020E-09EE-4EFB-99C5-37F9051ECFBF"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cicatribio/Controllers/ImageFeaturesViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "handleNextScreen(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EF9B71DE-0182-48A6-9761-E6F44B09B222"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cicatribio/Controllers/NewAvaliationViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B5788276-4E4F-47FE-8220-B1707FD74375"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cicatribio/Controllers/ImageFeaturesViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "253"
+            endingLineNumber = "253"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A6B2A5DD-27DF-4B5F-A4ED-85DDAA05ED79"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cicatribio/Controllers/CreatePatient/RegisterPatientViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "181"
+            endingLineNumber = "181"
+            landmarkName = "pickerView(_:didSelectRow:inComponent:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A6B2A5DD-27DF-4B5F-A4ED-85DDAA05ED79 - c0a24540d51ac68a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cicatribio.RegisterPatientViewController.pickerView(_: __C.UIPickerView, didSelectRow: Swift.Int, inComponent: Swift.Int) -&gt; ()"
+                  moduleName = "Cicatribio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gustavocosta/Documents/projects/cicatribio-NNT/Cicatribio/Controllers/CreatePatient/RegisterPatientViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "168"
+                  endingLineNumber = "168"
+                  offsetFromSymbolStart = "468">
+               </Location>
+               <Location
+                  uuid = "A6B2A5DD-27DF-4B5F-A4ED-85DDAA05ED79 - c0a24540d51ac6ab"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cicatribio.RegisterPatientViewController.pickerView(_: __C.UIPickerView, didSelectRow: Swift.Int, inComponent: Swift.Int) -&gt; ()"
+                  moduleName = "Cicatribio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gustavocosta/Documents/projects/cicatribio-NNT/Cicatribio/Controllers/CreatePatient/RegisterPatientViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "169"
+                  endingLineNumber = "169"
+                  offsetFromSymbolStart = "96">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B124BFB6-F7E9-4088-8990-F42828584A52"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cicatribio/Controllers/CreatePatient/RegisterPatientViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "180"
+            endingLineNumber = "180"
+            landmarkName = "pickerView(_:didSelectRow:inComponent:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "852F2B67-A02E-4FE4-81B1-E8C74D89EE1A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cicatribio/Controllers/CreatePatient/RegisterPatientViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "185"
+            endingLineNumber = "185"
+            landmarkName = "doneSexPicker()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "847263AD-3EF2-40E0-BA3D-77BE74D3D237"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cicatribio/Controllers/CreatePatient/RegisterPatientViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "pressSaveButton(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "847263AD-3EF2-40E0-BA3D-77BE74D3D237 - 55c06981bd6fd333"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cicatribio.RegisterPatientViewController.pressSaveButton(__C.UIButton) -&gt; ()"
+                  moduleName = "Cicatribio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gustavocosta/Documents/projects/cicatribio-NNT/Cicatribio/Controllers/CreatePatient/RegisterPatientViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "74"
+                  endingLineNumber = "74"
+                  offsetFromSymbolStart = "3564">
+               </Location>
+               <Location
+                  uuid = "847263AD-3EF2-40E0-BA3D-77BE74D3D237 - 55c06981bd6fd333"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cicatribio.RegisterPatientViewController.pressSaveButton(__C.UIButton) -&gt; ()"
+                  moduleName = "Cicatribio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gustavocosta/Documents/projects/cicatribio-NNT/Cicatribio/Controllers/CreatePatient/RegisterPatientViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "74"
+                  endingLineNumber = "74"
+                  offsetFromSymbolStart = "3416">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "78B9B910-F06F-4E31-9D11-B42941CC5F48"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cicatribio/Controllers/CreatePatient/RegisterPatientViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "pressSaveButton(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "78B9B910-F06F-4E31-9D11-B42941CC5F48 - 55c06981bd6fd1a7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cicatribio.RegisterPatientViewController.pressSaveButton(__C.UIButton) -&gt; ()"
+                  moduleName = "Cicatribio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gustavocosta/Documents/projects/cicatribio-NNT/Cicatribio/Controllers/CreatePatient/RegisterPatientViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "62"
+                  endingLineNumber = "62"
+                  offsetFromSymbolStart = "1392">
+               </Location>
+               <Location
+                  uuid = "78B9B910-F06F-4E31-9D11-B42941CC5F48 - 55c06981bd6fd1a7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cicatribio.RegisterPatientViewController.pressSaveButton(__C.UIButton) -&gt; ()"
+                  moduleName = "Cicatribio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gustavocosta/Documents/projects/cicatribio-NNT/Cicatribio/Controllers/CreatePatient/RegisterPatientViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "62"
+                  endingLineNumber = "62"
+                  offsetFromSymbolStart = "1916">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E8E8475E-707C-4A1A-A383-30A62FCF6D4F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cicatribio/Controllers/EditProfile/EditProfileViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5DA6C5A3-1AC9-42BA-9DB6-8F61B50F0321"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cicatribio/Manager/ApiManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "215"
+            endingLineNumber = "215"
+            landmarkName = "postUserForEdit(name:phone:id:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "01F07A99-258E-4F24-962E-D91F66BC73EF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cicatribio/Manager/ApiManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "238"
+            endingLineNumber = "238"
+            landmarkName = "postUserForEdit(name:phone:id:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1A3F5D33-546E-4E75-9FA9-4E806FB49C04"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cicatribio/Manager/ApiManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "254"
+            endingLineNumber = "254"
+            landmarkName = "postUserForEdit(name:phone:id:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "17FD7D8C-B71B-45A2-A437-9C1A2D12D5E2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cicatribio/Manager/ApiManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "237"
+            endingLineNumber = "237"
+            landmarkName = "postUserForEdit(name:phone:id:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "17FD7D8C-B71B-45A2-A437-9C1A2D12D5E2 - 7861eff3ad3a94fb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Cicatribio.ApiManager.postUserForEdit(name: Swift.String, phone: Swift.String, id: Swift.String, completion: (Swift.Bool, Swift.Optional&lt;Cicatribio.User&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Cicatribio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gustavocosta/Documents/projects/cicatribio-NNT/Cicatribio/Manager/ApiManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "237"
+                  endingLineNumber = "237"
+                  offsetFromSymbolStart = "240">
+               </Location>
+               <Location
+                  uuid = "17FD7D8C-B71B-45A2-A437-9C1A2D12D5E2 - 7861eff3ad3a94fb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Cicatribio.ApiManager.postUserForEdit(name: Swift.String, phone: Swift.String, id: Swift.String, completion: (Swift.Bool, Swift.Optional&lt;Cicatribio.User&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Cicatribio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gustavocosta/Documents/projects/cicatribio-NNT/Cicatribio/Manager/ApiManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "237"
+                  endingLineNumber = "237"
+                  offsetFromSymbolStart = "1092">
+               </Location>
+               <Location
+                  uuid = "17FD7D8C-B71B-45A2-A437-9C1A2D12D5E2 - c530cab7f81dfcbc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Cicatribio.ApiManager.postUserForEdit(name: Swift.String, phone: Swift.String, id: Swift.String, completion: (Swift.Bool, Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Cicatribio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gustavocosta/Documents/projects/cicatribio-NNT/Cicatribio/Manager/ApiManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "237"
+                  endingLineNumber = "237"
+                  offsetFromSymbolStart = "248">
+               </Location>
+               <Location
+                  uuid = "17FD7D8C-B71B-45A2-A437-9C1A2D12D5E2 - c530cab7f81dfcbc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Cicatribio.ApiManager.postUserForEdit(name: Swift.String, phone: Swift.String, id: Swift.String, completion: (Swift.Bool, Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Cicatribio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gustavocosta/Documents/projects/cicatribio-NNT/Cicatribio/Manager/ApiManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "237"
+                  endingLineNumber = "237"
+                  offsetFromSymbolStart = "1056">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "843E3433-3207-4E8A-A9EE-8477797449AF"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cicatribio/Controllers/NewAvaliationViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "handleNext(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "843E3433-3207-4E8A-A9EE-8477797449AF - 52f65db4f84c6126"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cicatribio.NewAnamenseViewController.handleNext(__C.UIButton) -&gt; ()"
+                  moduleName = "Cicatribio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gustavocosta/Documents/projects/cicatribio-NNT/Cicatribio/Controllers/NewAvaliationViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "272">
+               </Location>
+               <Location
+                  uuid = "843E3433-3207-4E8A-A9EE-8477797449AF - 52f65db4f84c6126"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cicatribio.NewAnamenseViewController.handleNext(__C.UIButton) -&gt; ()"
+                  moduleName = "Cicatribio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gustavocosta/Documents/projects/cicatribio-NNT/Cicatribio/Controllers/NewAvaliationViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "204">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

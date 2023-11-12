@@ -28,29 +28,50 @@ class ImageFeaturesViewController: UIViewController, UINavigationControllerDeleg
     var exudateType: Int!
     var exudateAmount: Int!
     
+    var reviewTypes: [DataOptionType] = []
+    var review = false
+    var reviewData: Anamnese!
+    var reviewImage: String?
+    
     var anamneseInfo = AnamneseInfo()
     
     var imageKey: String!
     var imageId: Int!
     
+    var imagePickerCell: ImagePickerCustomTableViewCell?
+    
+    @IBOutlet weak var nextScreenButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         featureOptions = [
-            FeatureOption(title: "Tipo de tecidos", options: UserManager.shared.skinTypes!),
-            FeatureOption(title: "Local da ferida", options: UserManager.shared.injurySites!),
-            FeatureOption(title: "Tipo exsudatos", options: UserManager.shared.exudateTypes!),
-            FeatureOption(title: "Quantidade de exsudatos", options: UserManager.shared.exudateAmounts!)
+            FeatureOption(title: "Tipo de tecidos:", options: UserManager.shared.skinTypes!),
+            FeatureOption(title: "Local da ferida:", options: UserManager.shared.injurySites!),
+            FeatureOption(title: "Tipo exsudatos:", options: UserManager.shared.exudateTypes!),
+            FeatureOption(title: "Quantidade de exsudatos:", options: UserManager.shared.exudateAmounts!),
+            FeatureOption(title: "Tipo sintomas:", options: UserManager.shared.symptomsTypes!)
         ]
 
         tableView.dataSource = self
         tableView.register(SelectorTableViewCell.nib(), forCellReuseIdentifier: SelectorTableViewCell.identifier)
         tableView.register(ImagePickerCustomTableViewCell.nib(), forCellReuseIdentifier: ImagePickerCustomTableViewCell.identifier)
-
+        
+        updateReviewTypes()
+        if review {
+            nextScreenButton.titleLabel?.text = "Proxima etapa"
+        }
     }
     
-    @IBAction func postAnamnse(_ sender: UIButton) {
+    @IBAction func handleNextScreen(_ sender: UIButton) {
+        if review {
+            self.performSegue(withIdentifier: "goToNext", sender: self)
+        } else {
+            postAnamnese()
+        }
+    }
+    
+    func postAnamnese() {
         guard let anamneseDate = anamneseInfo.selectedDate,
               let weightKg = anamneseInfo.weightKg,
               let heightM = anamneseInfo.heightM,
@@ -116,7 +137,6 @@ class ImageFeaturesViewController: UIViewController, UINavigationControllerDeleg
         }
     }
     
-    
     func continuePostSequence(injuryData: InjuryType, injuryObj: [String: Any]) {
         self.apiManager.postData(endpoint: "caracteristicasFerida", postData: injuryObj, dataType: InjuryType.self) { (data, error) in
             if let error = error {
@@ -143,6 +163,62 @@ class ImageFeaturesViewController: UIViewController, UINavigationControllerDeleg
         }
     }
     
+    func updateReviewTypes() {
+        
+        guard review, let mobFerida = reviewData.mobFeridas?.first else {
+            return
+        }
+        
+        guard let _ = reviewData,
+              let symptomTypes = UserManager.shared.symptomsTypes,
+              let skinTypes = UserManager.shared.skinTypes,
+              let injurySites = UserManager.shared.injurySites,
+              let exudateTypes = UserManager.shared.exudateTypes,
+              let exudateAmounts = UserManager.shared.exudateAmounts
+        else {
+            return
+        }
+        
+        let mobCaracteristicasFerida = mobFerida.mob_caracteristicas_ferida
+        if let skinType = skinTypes.first(where: { $0.id == mobCaracteristicasFerida?.mobTipoTecidosId }) {
+            reviewTypes.append(skinType)
+            anamneseInfo.skinType = mobCaracteristicasFerida?.mobTipoTecidosId
+        }
+        if let injurySite = injurySites.first(where: { $0.id == mobCaracteristicasFerida?.mobLocalFeridasId }) {
+            reviewTypes.append(injurySite)
+            anamneseInfo.injurySite = mobCaracteristicasFerida?.mobLocalFeridasId
+        }
+        
+        if let exudateType = exudateTypes.first(where: { $0.id == mobCaracteristicasFerida?.mobTipoExsudatosId }) {
+            reviewTypes.append(exudateType)
+            anamneseInfo.exudateType = mobCaracteristicasFerida?.mobTipoExsudatosId
+        }
+        
+        if let exudateAmount = exudateAmounts.first(where: { $0.id == mobCaracteristicasFerida?.mobQtdExsudatosId }) {
+            reviewTypes.append(exudateAmount)
+            anamneseInfo.exudateAmount = mobCaracteristicasFerida?.mobQtdExsudatosId
+        }
+        
+        if let symptomType = symptomTypes.first(where: { $0.id == mobCaracteristicasFerida?.mobTipoSintomasId }) {
+            reviewTypes.append(symptomType)
+            anamneseInfo.symptomType = mobCaracteristicasFerida?.mobTipoSintomasId
+        }
+        
+        if let injuryPath = mobFerida.mob_imagens_ferida?.ds_caminho_server {
+            apiManager.getAnamneseImage(key: injuryPath) { image, error in
+                if let image = image {
+                    DispatchQueue.main.async {
+                        let base64WithoutPrefix = image.replacingOccurrences(of: "data:image/png;base64,", with: "")
+                        self.anamneseInfo.base64ImageData = base64WithoutPrefix
+                        self.configureImagePickerCell(with: base64WithoutPrefix)
+                    }
+                } else {
+                    // Tratar erro
+                    print("Erro ao obter a anamnese completa:", error ?? "Erro desconhecido")
+                }
+            }
+        }
+    }
     
     @IBAction func handleBack(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
@@ -152,8 +228,14 @@ class ImageFeaturesViewController: UIViewController, UINavigationControllerDeleg
         if segue.identifier == "goToNext" {
             if let nextViewController = segue.destination as? SegmentationViewController {
                 nextViewController.imageb64 = anamneseInfo.base64ImageData
+                if review {
+                    let imageData = reviewData.mobFeridas?.first?.mob_imagens_ferida
+                    nextViewController.imageKey = imageData?.ds_caminho_server
+                    nextViewController.imageId = imageData?.id
+                } else {
                 nextViewController.imageId = imageId
                 nextViewController.imageKey = imageKey
+                }
             }
         }
     }
@@ -161,15 +243,21 @@ class ImageFeaturesViewController: UIViewController, UINavigationControllerDeleg
 
 extension ImageFeaturesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row < 4 {
+        if indexPath.row < 5 {
             let option = featureOptions[indexPath.row]
             let customCell = tableView.dequeueReusableCell(withIdentifier: SelectorTableViewCell.identifier, for: indexPath) as! SelectorTableViewCell
             customCell.configure(with: option.options, title: option.title, tag: indexPath.row)
             customCell.delegate = self
+            if review {
+                customCell.searchTextField.isUserInteractionEnabled = false
+                customCell.searchTextField.text = reviewTypes[indexPath.row].value
+            }
             return customCell
         } else {
             
             let customCell = tableView.dequeueReusableCell(withIdentifier: ImagePickerCustomTableViewCell.identifier, for: indexPath) as! ImagePickerCustomTableViewCell
+            
+            imagePickerCell = customCell
 
             customCell.delegate = self
             return customCell
@@ -177,9 +265,16 @@ extension ImageFeaturesViewController: UITableViewDataSource {
         
     }
     
+    func configureImagePickerCell(with image: String) {
+        if let indexPath = tableView.indexPath(for: imagePickerCell!) {
+            let cell = tableView.cellForRow(at: indexPath) as! ImagePickerCustomTableViewCell
+            cell.configure(with: image)
+        }
+    }
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 6
     }
 }
 
@@ -201,6 +296,8 @@ extension ImageFeaturesViewController: SelectorTableViewCellDelegate, ImagePicke
             anamneseInfo.exudateType = value
         case 3:
             anamneseInfo.exudateAmount = value
+        case 4:
+            anamneseInfo.symptomType = value
         default:
             break
         }

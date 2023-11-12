@@ -53,13 +53,14 @@ class CreateAccountViewController: UIViewController {
             return
         }
         
+        let numericCPF = cpf.numericString
         // Crie os parâmetros que você deseja enviar como um dicionário
         let parameters: [String: Any] = [
             "no_completo": nome,
             "ds_senha": senha,
             "ds_email": email,
             "nu_telefone_completo": phone,
-            "nu_cpf": cpf
+            "nu_cpf": numericCPF
         ]
 
         // Crie uma solicitação URLRequest com o URL

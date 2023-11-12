@@ -18,6 +18,7 @@ struct Anamnese: Decodable {
     let vl_temperatura: Double?
     let createdAt: String?
     let updatedAt: String?
+    let mobFeridas: [InjuryType]?
 
     private enum CodingKeys: String, CodingKey {
         case id
@@ -30,6 +31,7 @@ struct Anamnese: Decodable {
         case vl_temperatura
         case createdAt
         case updatedAt
+        case mob_feridas
     }
 
     init(from decoder: Decoder) throws {
@@ -52,5 +54,7 @@ struct Anamnese: Decodable {
         } else {
             dt_anamnese = nil
         }
+        
+        mobFeridas = try container.decodeIfPresent([InjuryType].self, forKey: .mob_feridas)
     }
 }

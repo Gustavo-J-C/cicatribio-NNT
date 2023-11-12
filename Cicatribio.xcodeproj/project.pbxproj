@@ -40,6 +40,8 @@
 		FC5A0B662AE69B510024F28B /* RiskFactorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5A0B652AE69B510024F28B /* RiskFactorsViewController.swift */; };
 		FC67EFA92AEAD69400E5CF00 /* DateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC67EFA72AEAD69400E5CF00 /* DateTableViewCell.swift */; };
 		FC67EFAA2AEAD69400E5CF00 /* DateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC67EFA82AEAD69400E5CF00 /* DateTableViewCell.xib */; };
+		FC6E626D2AFD7C2B00382A52 /* InjuryFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6E626C2AFD7C2B00382A52 /* InjuryFeatures.swift */; };
+		FC7B8E6A2AFE773F0034DE72 /* InjuryImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7B8E692AFE773F0034DE72 /* InjuryImage.swift */; };
 		FC7BBC7F2AF6BB7A0005395F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7BBC7E2AF6BB7A0005395F /* ProfileViewController.swift */; };
 		FC7BBC822AF6BFAC0005395F /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7BBC812AF6BFAC0005395F /* EditProfileViewController.swift */; };
 		FC7BBC842AF6BFB60005395F /* EditProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC7BBC832AF6BFB60005395F /* EditProfile.storyboard */; };
@@ -104,6 +106,8 @@
 		FC5A0B652AE69B510024F28B /* RiskFactorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiskFactorsViewController.swift; sourceTree = "<group>"; };
 		FC67EFA72AEAD69400E5CF00 /* DateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTableViewCell.swift; sourceTree = "<group>"; };
 		FC67EFA82AEAD69400E5CF00 /* DateTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DateTableViewCell.xib; sourceTree = "<group>"; };
+		FC6E626C2AFD7C2B00382A52 /* InjuryFeatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjuryFeatures.swift; sourceTree = "<group>"; };
+		FC7B8E692AFE773F0034DE72 /* InjuryImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjuryImage.swift; sourceTree = "<group>"; };
 		FC7BBC7E2AF6BB7A0005395F /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		FC7BBC812AF6BFAC0005395F /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		FC7BBC832AF6BFB60005395F /* EditProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditProfile.storyboard; sourceTree = "<group>"; };
@@ -302,6 +306,7 @@
 				FCD671AB2AE218EA0083FDC2 /* PatitentsData.swift */,
 				FCD850CA2AEC156B001925ED /* AnamneseInfo.swift */,
 				FCA169312AE6A293008C6B50 /* UserData.swift */,
+				FC6E626C2AFD7C2B00382A52 /* InjuryFeatures.swift */,
 				FCD016C62AE4A3E20055B2D7 /* Anamnese.swift */,
 				FCA1692C2AE69E7E008C6B50 /* MobilitType.swift */,
 				FCCAC2102AF016D90065673D /* InjuryType.swift */,
@@ -316,6 +321,7 @@
 				FC2A19972AE80AAC0009ADB4 /* InjurySite.swift */,
 				FC2A19912AE7EBA80009ADB4 /* DataOptionType.swift */,
 				FCEDD5F82AEC4C6400B6943A /* AnamneseData.swift */,
+				FC7B8E692AFE773F0034DE72 /* InjuryImage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -427,8 +433,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC7B8E6A2AFE773F0034DE72 /* InjuryImage.swift in Sources */,
 				FC7BBC822AF6BFAC0005395F /* EditProfileViewController.swift in Sources */,
 				FC2A19962AE8099D0009ADB4 /* SymptomType.swift in Sources */,
+				FC6E626D2AFD7C2B00382A52 /* InjuryFeatures.swift in Sources */,
 				FCBD9AF92AF92A950030B6EB /* String.swift in Sources */,
 				FC2A199A2AE80C450009ADB4 /* ExudateType.swift in Sources */,
 				CE0FEC4C2AC89AC60030A8C8 /* CreateAccountViewController.swift in Sources */,
@@ -619,6 +627,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 23J9NJ457C;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cicatribio/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -646,6 +655,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 23J9NJ457C;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cicatribio/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

@@ -8,6 +8,10 @@
 import Foundation
 
 extension String {
+    var numericString: String {
+        return self.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
+    }
+    
     var isCPF: Bool {
         let numbers = self.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
         guard numbers.count == 11 else { return false }

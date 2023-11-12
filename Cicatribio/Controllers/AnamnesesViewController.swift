@@ -12,6 +12,7 @@ class AnamnesesViewController: UIViewController, ApiManagerDelegate {
     var user : User!
     var apiManager = ApiManager()
     var patientAnamneses: [Anamnese] = []
+    var anamnese: Anamnese!
     
     var currentPatient: PatientsData! = nil
     
@@ -52,6 +53,20 @@ class AnamnesesViewController: UIViewController, ApiManagerDelegate {
             if let nextViewController = segue.destination as? NewAnamenseViewController {
                 nextViewController.anamneseInfo.patientId = currentPatient.id
             }
+        }        
+        if segue.identifier == "goToReview" {
+            if let nextViewController = segue.destination as? NewAnamenseViewController {
+                nextViewController.anamneseInfo.patientId = currentPatient.id
+                apiManager.getFullAnamnese(anamneseId: anamnese.id) { anamnese, error in
+                    if let anamnese = anamnese {
+                        nextViewController.reviewData = anamnese
+                        nextViewController.review = true
+                    } else {
+                        // Tratar erro
+                        print("Erro ao obter a anamnese completa:", error ?? "Erro desconhecido")
+                    }
+                }
+            }
         }
     }
     
@@ -76,6 +91,11 @@ extension AnamnesesViewController: UITableViewDataSource {
 }
 
 extension AnamnesesViewController: CustomAnamneseCellDelegate {
+    func goToReview(with anamnese: Anamnese) {
+        self.anamnese = anamnese
+        self.performSegue(withIdentifier: "goToReview", sender: self)
+    }
+    
     func didDeleteItem() {
         // Lidar com a notificação da exclusão aqui
         // Use o índice para manipular o item correto
@@ -86,4 +106,6 @@ extension AnamnesesViewController: CustomAnamneseCellDelegate {
             self.tableView.reloadData()
         }
     }
+    
+
 }

@@ -23,8 +23,9 @@ class TextTableViewCell: UITableViewCell {
         return UINib(nibName: "TextTableViewCell", bundle: nil)
     }
     
-    public func configure(with title: String, delegate: TextTableViewCellDelegate) {
+    public func configure(with title: String, delegate: TextTableViewCellDelegate, value: String? = nil) {
         titleLabel.text = title
+        textField.text = value
         textField.delegate = self
         self.delegate = delegate
         

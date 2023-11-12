@@ -18,6 +18,8 @@ class ImagePickerCustomTableViewCell: UITableViewCell, UINavigationControllerDel
     static let identifier: String = "ImagePickerCustomTableViewCell"
     var selectedImage : UIImage!
     
+    @IBOutlet weak var CameraButton: UIButton!
+    @IBOutlet weak var storageButton: UIButton!
     @IBOutlet weak var myImageView: UIImageView!
     weak var delegate: ImagePickerCustomTableViewCellDelegate?
     override func awakeFromNib() {
@@ -27,6 +29,21 @@ class ImagePickerCustomTableViewCell: UITableViewCell, UINavigationControllerDel
     
     static func nib() -> UINib {
         return UINib(nibName: "ImagePickerCustomTableViewCell", bundle: nil)
+    }
+    
+    func configure(with base64Image: String?) {
+        guard let base64Image = base64Image else {
+            myImageView.image = nil
+            return
+        }
+        
+        if let imageData = Data(base64Encoded: base64Image), let image = UIImage(data: imageData) {
+            myImageView.image = image
+        } else {
+            myImageView.image = nil
+        }
+        storageButton.isUserInteractionEnabled = false
+        CameraButton.isUserInteractionEnabled = false
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

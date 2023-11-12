@@ -203,7 +203,76 @@ struct ApiManager {
         // Inicie a tarefa
         task.resume()
     }
+    
+    func postUserForEdit(name: String, phone: String, id: String, completion: @escaping (Bool, [String: Any]?) -> Void) {
+        let endpoint = "usuarioEdit"
+        let urlString = "\(apiUrl)\(endpoint)"
+        
+        var request = URLRequest(url: URL(string: urlString)!)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let parameters: [String: Any] = [
+            "name": name,
+            "phone": phone,
+            "id": id
+        ]
+        
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: parameters)
+            request.httpBody = jsonData
+        } catch {
+            print("Erro ao criar os dados JSON: \(error.localizedDescription)")
+            completion(false, nil)
+            return
+        }
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                print("Erro na requisição: \(error.localizedDescription)")
+                completion(false, nil)
+                return
+            }
+            
+            if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
+                if let responseData = data {
+                    do {
+                        if let json = try JSONSerialization.jsonObject(with: data!, options: []) as? [String: Any] {
+                            completion(true, json)
+                        } else {
+                            print("Erro ao fazer o parse dos dados JSON")
+                            completion(false, nil)
+                        }
+                    } catch {
+                        print("Erro ao fazer o parse dos dados JSON: \(error.localizedDescription)")
+                        completion(false, nil)
+                    }
+                } else {
+                    print("Nenhum dado na resposta")
+                    completion(false, nil)
+                }
+            } else {
+                print("Resposta inválida do servidor")
+                completion(false, nil)
+            }
+        }
+        
+        task.resume()
+    }
 
+    func getFullAnamnese(anamneseId: Int, completion: @escaping (Anamnese?, Error?) -> Void) {
+        let endpoint = "anamneseFull/\(anamneseId)"
+        fetchAndDecode(endpoint, type: Anamnese.self) { anamnese in
+            completion(anamnese, nil)
+        }
+    }    
+    
+    func getAnamneseImage(key: String, completion: @escaping (String?, Error?) -> Void) {
+        let endpoint = "upload/\(key)"
+        fetchAndDecode(endpoint, type: String.self) { image in
+            completion(image, nil)
+        }
+    }
     
     func postData<T: Decodable>(endpoint: String, postData: [String: Any], dataType: T.Type, completion: @escaping (T?, Error?) -> Void) {
         let urlString = "\(apiUrl)\(endpoint)"
@@ -385,6 +454,14 @@ struct ApiManager {
         }
     }
     func fetchInjurySites() {
+        let endpoint = "localFerida"
+        fetchAndDecode(endpoint, type: [InjurySite].self) { injurySites in
+            if let injurySites = injurySites {
+                UserManager.shared.injurySites = injurySites
+            }
+        }
+    }    
+    func fetchEthnicity() {
         let endpoint = "localFerida"
         fetchAndDecode(endpoint, type: [InjurySite].self) { injurySites in
             if let injurySites = injurySites {

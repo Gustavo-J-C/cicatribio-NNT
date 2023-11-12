@@ -18,16 +18,10 @@ class MyTableViewCell: UITableViewCell {
     
     public func configure(with name: String, sex: Int, birthday: Date) {
         nameLabel.text = name
-        if sex == 1 {
-            sexLabel.text = "Sexo: Masculino"
-        } else {
-            sexLabel.text = "Sexo: Feminino"
-        }
         birthdayLabel.text = birthday.formatted()
     }
     
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var sexLabel: UILabel!
     @IBOutlet weak var birthdayLabel: UILabel!
 
     override func awakeFromNib() {

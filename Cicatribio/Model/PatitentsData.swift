@@ -9,13 +9,13 @@ import Foundation
 
 struct PatientsData: Decodable {
     let id: Int
-    let no_completo: String
-    let nu_cpf: String
-    let ds_sexo: Int
-    let ds_cor_raca: String
-    let dt_nascimento: Date
-    let ds_email: String
-    let ds_ocupacao: String
+    let no_completo: String?
+    let nu_cpf: String?
+    let ds_sexo: Int?
+    let ds_cor_raca: String?
+    let dt_nascimento: Date?
+    let ds_email: String?
+    let ds_ocupacao: String?
     let nu_telefone_completo: String
     let createdAt: Date
     let updatedAt: Date
@@ -38,40 +38,39 @@ struct PatientsData: Decodable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
         id = try container.decode(Int.self, forKey: .id)
-        no_completo = try container.decode(String.self, forKey: .no_completo)
-        nu_cpf = try container.decode(String.self, forKey: .nu_cpf)
-        ds_sexo = try container.decode(Int.self, forKey: .ds_sexo)
-        ds_cor_raca = try container.decode(String.self, forKey: .ds_cor_raca)
+        no_completo = try container.decode(String?.self, forKey: .no_completo)
+        nu_cpf = try container.decode(String?.self, forKey: .nu_cpf)
+        ds_sexo = try container.decode(Int?.self, forKey: .ds_sexo)
+        ds_cor_raca = try container.decode(String?.self, forKey: .ds_cor_raca)
         
         let dateFormatter = DateFormatter()
         let birtdayDateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
         birtdayDateFormatter.dateFormat = "yyyy-MM-dd"
         
-        let dateString = try container.decode(String.self, forKey: .dt_nascimento)
-        if let date = birtdayDateFormatter.date(from: dateString) {
+        if let dateString = try container.decode(String?.self, forKey: .dt_nascimento), let date = birtdayDateFormatter.date(from: dateString) {
             dt_nascimento = date
         } else {
-            print("Erro ao converter a data: \(dateString)")
-            throw DecodingError.dataCorruptedError(forKey: .dt_nascimento, in: container, debugDescription: "Date string could not be converted.")
+            print("Erro ao converter a data")
+            dt_nascimento = nil
         }
         
-        ds_email = try container.decode(String.self, forKey: .ds_email)
-        ds_ocupacao = try container.decode(String.self, forKey: .ds_ocupacao)
+        ds_email = try container.decode(String?.self, forKey: .ds_email)
+        ds_ocupacao = try container.decode(String?.self, forKey: .ds_ocupacao)
         nu_telefone_completo = try container.decode(String.self, forKey: .nu_telefone_completo)
         
-        let createdDateString = try container.decode(String.self, forKey: .createdAt)
-        if let date = dateFormatter.date(from: createdDateString) {
+        if let createdDateString = try container.decode(String?.self, forKey: .createdAt), let date = dateFormatter.date(from: createdDateString) {
             createdAt = date
         } else {
-            throw DecodingError.dataCorruptedError(forKey: .createdAt, in: container, debugDescription: "Date string could not be converted.")
+            print("Erro ao converter a data de criação")
+            createdAt = Date()
         }
         
-        let updatedDateString = try container.decode(String.self, forKey: .updatedAt)
-        if let date = dateFormatter.date(from: updatedDateString) {
+        if let updatedDateString = try container.decode(String?.self, forKey: .updatedAt), let date = dateFormatter.date(from: updatedDateString) {
             updatedAt = date
         } else {
-            throw DecodingError.dataCorruptedError(forKey: .updatedAt, in: container, debugDescription: "Date string could not be converted.")
+            print("Erro ao converter a data de atualização")
+            updatedAt = Date()
         }
     }
 }
